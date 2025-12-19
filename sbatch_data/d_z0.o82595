@@ -1,0 +1,3 @@
+[TabPFN] Using device: cpu
+[taskA | Raw] CV R²: 0.8007 ± 0.0906 | MAE: 0.3254 ± 0.0213 | MSE: 0.4531 ± 0.1933
+[Done] TabPFN 交叉验证完成。

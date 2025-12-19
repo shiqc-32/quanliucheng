@@ -1,0 +1,12 @@
+/stu02/shiqc24/d_z0_ML/quanliucheng/urban_model.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  z0_o_H = (Hmax / Have - d_o_H) * np.exp(-(B**(-0.5)))
+/stu02/shiqc24/d_z0_ML/quanliucheng/urban_model.py:304: RuntimeWarning: invalid value encountered in scalar multiply
+  z0_val = z0_o_H * Have
+Traceback (most recent call last):
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 277, in <module>
+    main()
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 273, in main
+    um.run_rur_from_cfg(cfg)        # 对所有站点做 z0 NaN 检查
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/urban_model.py", line 319, in run_rur_from_cfg
+    f1.write(f"{ztmp:12.2f}{rp[k]:12.6f}{rf_density[k]:12.6f}\n")
+IndexError: index 16 is out of bounds for axis 0 with size 16

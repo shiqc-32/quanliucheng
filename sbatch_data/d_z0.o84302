@@ -1,0 +1,69 @@
+[GBR] Running task: urban_z0_gbr
+[GBR|Bayes] mode=raw | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.278757
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.08069247690191837), ('max_depth', 4), ('max_features', 0.3125380439175354), ('min_samples_leaf', 1), ('min_samples_split', 7), ('n_estimators', 331), ('subsample', 0.8800260124774224)])
+[urban_z0_gbr | RAW] CV R²: 0.7498 ± 0.0972 | MAE: 0.3250 ± 0.0315 | MSE: 0.2768 ± 0.1010
+[urban_z0_gbr | RAW | holdout_0.2] TEST R²: 0.8115 | TEST MAE: 0.3162 | TEST MSE: 0.2415
+[GBR|Bayes] mode=log | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.041276
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.017081855520376214), ('max_depth', 6), ('max_features', 0.676085607714276), ('min_samples_leaf', 4), ('min_samples_split', 17), ('n_estimators', 443), ('subsample', 0.7016038133121842)])
+[urban_z0_gbr | LOG] CV R²: 0.7291 ± 0.1557 | MAE: 0.3194 ± 0.0330 | MSE: 0.2992 ± 0.1654
+[urban_z0_gbr | LOG | holdout_0.2] TEST R²: 0.8239 | TEST MAE: 0.3019 | TEST MSE: 0.2257
+[GBR] Running task: urban_d_gbr
+[GBR|Bayes] mode=raw | n_iter=30, cv=3
+[GBR|Bayes] best_score=-14.457550
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.02133177882603043), ('max_depth', 6), ('max_features', 0.7683267073785631), ('min_samples_leaf', 11), ('min_samples_split', 10), ('n_estimators', 500), ('subsample', 0.5447105981617392)])
+[urban_d_gbr | RAW] CV R²: 0.7190 ± 0.0426 | MAE: 1.9010 ± 0.2246 | MSE: 11.9959 ± 0.8487
+[urban_d_gbr | RAW | holdout_0.2] TEST R²: 0.5680 | TEST MAE: 1.8945 | TEST MSE: 14.4799
+[GBR|Bayes] mode=log | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.145937
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.10721396483847041), ('max_depth', 4), ('max_features', 1.0), ('min_samples_leaf', 12), ('min_samples_split', 8), ('n_estimators', 441), ('subsample', 0.7723616509698263)])
+[urban_d_gbr | LOG] CV R²: 0.6036 ± 0.0835 | MAE: 2.2497 ± 0.4160 | MSE: 17.6192 ± 6.6503
+[urban_d_gbr | LOG | holdout_0.2] TEST R²: 0.3843 | TEST MAE: 2.2502 | TEST MSE: 20.6354
+[GBR] Running task: kanda_z0_gbr
+[GBR|Bayes] mode=raw | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.534332
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.29999999999999993), ('max_depth', 2), ('max_features', 1.0), ('min_samples_leaf', 3), ('min_samples_split', 20), ('n_estimators', 165), ('subsample', 0.8062132519943099)])
+[kanda_z0_gbr | RAW] CV R²: 0.6979 ± 0.2376 | MAE: 0.5379 ± 0.1212 | MSE: 0.5896 ± 0.2706
+[kanda_z0_gbr | RAW | holdout_0.2] TEST R²: 0.6192 | TEST MAE: 1.2020 | TEST MSE: 4.0751
+[GBR|Bayes] mode=log | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.036755
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.01), ('max_depth', 5), ('max_features', 1.0), ('min_samples_leaf', 1), ('min_samples_split', 3), ('n_estimators', 500), ('subsample', 0.5166803705327901)])
+[kanda_z0_gbr | LOG] CV R²: 0.7749 ± 0.1658 | MAE: 0.4720 ± 0.0742 | MSE: 0.4345 ± 0.1669
+[kanda_z0_gbr | LOG | holdout_0.2] TEST R²: 0.6434 | TEST MAE: 1.1247 | TEST MSE: 3.8157
+[GBR] Running task: kanda_d_gbr
+[GBR|Bayes] mode=raw | n_iter=30, cv=3
+[GBR|Bayes] best_score=-35.461234
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.01441483270096912), ('max_depth', 6), ('max_features', 1.0), ('min_samples_leaf', 5), ('min_samples_split', 2), ('n_estimators', 500), ('subsample', 0.5)])
+[kanda_d_gbr | RAW] CV R²: 0.7696 ± 0.0895 | MAE: 3.6584 ± 0.4343 | MSE: 30.3656 ± 10.6427
+[kanda_d_gbr | RAW | holdout_0.2] TEST R²: 0.6785 | TEST MAE: 4.9004 | TEST MSE: 52.8147
+[GBR|Bayes] mode=log | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.067728
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.01), ('max_depth', 3), ('max_features', 0.46276375768901856), ('min_samples_leaf', 1), ('min_samples_split', 2), ('n_estimators', 500), ('subsample', 0.826132347907354)])
+[kanda_d_gbr | LOG] CV R²: 0.7570 ± 0.0480 | MAE: 3.8363 ± 0.7084 | MSE: 36.8162 ± 19.7418
+[kanda_d_gbr | LOG | holdout_0.2] TEST R²: 0.6877 | TEST MAE: 4.8562 | TEST MSE: 51.3019
+[Done] GBRM 交叉验证完成。
+[GBR] Running task: kanda_z0_no_d_gbr
+[GBR|Bayes] mode=log | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.036755
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.01), ('max_depth', 5), ('max_features', 1.0), ('min_samples_leaf', 1), ('min_samples_split', 3), ('n_estimators', 500), ('subsample', 0.5166803705327901)])
+[kanda_z0_no_d_gbr | LOG] CV R²: 0.7749 ± 0.1658 | MAE: 0.4720 ± 0.0742 | MSE: 0.4345 ± 0.1669
+[kanda_z0_no_d_gbr | LOG | holdout_0.2] TEST R²: 0.6434 | TEST MAE: 1.1247 | TEST MSE: 3.8157
+[GBR] Running task: kanda_z0_with_d_gbr
+[GBR|Bayes] mode=log | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.041489
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.08334202090989706), ('max_depth', 6), ('max_features', 0.705771425834282), ('min_samples_leaf', 1), ('min_samples_split', 20), ('n_estimators', 191), ('subsample', 0.5)])
+[kanda_z0_with_d_gbr | LOG] CV R²: 0.7279 ± 0.2108 | MAE: 0.5030 ± 0.0845 | MSE: 0.5126 ± 0.1821
+[kanda_z0_with_d_gbr | LOG | holdout_0.2] TEST R²: 0.6746 | TEST MAE: 1.0627 | TEST MSE: 3.4824
+[GBR] Running task: urban_z0_no_d_gbr
+[GBR|Bayes] mode=log | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.041276
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.017081855520376214), ('max_depth', 6), ('max_features', 0.676085607714276), ('min_samples_leaf', 4), ('min_samples_split', 17), ('n_estimators', 443), ('subsample', 0.7016038133121842)])
+[urban_z0_no_d_gbr | LOG] CV R²: 0.7291 ± 0.1557 | MAE: 0.3194 ± 0.0330 | MSE: 0.2992 ± 0.1654
+[urban_z0_no_d_gbr | LOG | holdout_0.2] TEST R²: 0.8239 | TEST MAE: 0.3019 | TEST MSE: 0.2257
+[GBR] Running task: urban_z0_with_d_gbr
+[GBR|Bayes] mode=log | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.022889
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.10118036834115089), ('max_depth', 2), ('max_features', 0.3), ('min_samples_leaf', 1), ('min_samples_split', 14), ('n_estimators', 500), ('subsample', 1.0)])
+[urban_z0_with_d_gbr | LOG] CV R²: 0.8212 ± 0.0778 | MAE: 0.2549 ± 0.0206 | MSE: 0.2025 ± 0.0920
+[urban_z0_with_d_gbr | LOG | holdout_0.2] TEST R²: 0.8950 | TEST MAE: 0.2546 | TEST MSE: 0.1346

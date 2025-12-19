@@ -1,0 +1,5 @@
+[model_input] 从 metadata.x-y 解析得到 X/Y 列
+[model_input] 写出：/stu02/shiqc24/d_z0_ML/quanliucheng/output/translation_data/model_input_data.csv
+  总行数: 538, rp 匹配成功: 538, 未匹配: 0
+
+[Done] model_input_data.csv 生成完毕。

@@ -1,0 +1,12 @@
+[TabPFN] Running task: urban_z0
+[urban_z0 | RAW] CV R²: 0.7205 ± 0.1448 | MAE: 0.3583 ± 0.0428 | MSE: 0.6165 ± 0.2596
+[urban_z0 | RAW | holdout_0.2] TEST R²: 0.8398 | TEST MAE: 0.3324 | TEST MSE: 0.3258
+[urban_z0 | LOG] CV R²: 0.7195 ± 0.1428 | MAE: 0.3562 ± 0.0456 | MSE: 0.6266 ± 0.2863
+[urban_z0 | LOG | holdout_0.2] TEST R²: 0.8412 | TEST MAE: 0.3305 | TEST MSE: 0.3229
+[urban_z0 | RAW] CV R²: 0.7205 ± 0.1448 | MAE: 0.3583 ± 0.0428 | MSE: 0.6165 ± 0.2596
+[urban_z0 | RAW | holdout_0.2] TEST R²: 0.8398 | TEST MAE: 0.3324 | TEST MSE: 0.3258
+[urban_z0 | LOG] CV R²: 0.7195 ± 0.1428 | MAE: 0.3562 ± 0.0456 | MSE: 0.6266 ± 0.2863
+[urban_z0 | LOG | holdout_0.2] TEST R²: 0.8412 | TEST MAE: 0.3305 | TEST MSE: 0.3229
+[TabPFN] Running task: urban_d
+[urban_d | RAW] CV R²: 0.6284 ± 0.1007 | MAE: 1.9894 ± 0.3822 | MSE: 16.8816 ± 6.6132
+[urban_d | RAW | holdout_0.2] TEST R²: 0.6748 | TEST MAE: 1.8377 | TEST MSE: 13.7757

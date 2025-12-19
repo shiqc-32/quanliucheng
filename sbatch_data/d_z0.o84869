@@ -1,0 +1,37 @@
+[TabPFN] Running task: urban_z0_nobin
+[urban_z0_nobin | RAW] CV R²: 0.7259 ± 0.1270 | MAE: 0.2967 ± 0.0340 | MSE: 0.2706 ± 0.1133
+[urban_z0_nobin | RAW | holdout_0.2] TEST R²: 0.8948 | TEST MAE: 0.2583 | TEST MSE: 0.1666
+[TabPFN] Running task: urban_z0_bin_uni
+[urban_z0_bin_uni] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(134), np.int64(1): np.int64(160), np.int64(2): np.int64(58), np.int64(3): np.int64(20), np.int64(4): np.int64(9), np.int64(5): np.int64(5), np.int64(6): np.int64(2), np.int64(7): np.int64(7)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(134), np.int64(1): np.int64(150), np.int64(2): np.int64(58), np.int64(3): np.int64(20), np.int64(4): np.int64(9), np.int64(5): np.int64(5), np.int64(6): np.int64(2), np.int64(7): np.int64(7)}，总样本数由 395 → 385
+[urban_z0_bin_uni | RAW] CV R²: 0.7936 ± 0.0467 | MAE: 0.2866 ± 0.0317 | MSE: 0.2240 ± 0.1007
+[urban_z0_bin_uni | RAW | holdout_0.2] TEST R²: 0.8904 | TEST MAE: 0.2611 | TEST MSE: 0.1735
+[TabPFN] Running task: urban_d_nobin
+[urban_d_nobin | RAW] CV R²: 0.6295 ± 0.1863 | MAE: 1.7979 ± 0.2456 | MSE: 14.5240 ± 7.0410
+[urban_d_nobin | RAW | holdout_0.2] TEST R²: 0.8052 | TEST MAE: 1.4670 | TEST MSE: 8.2840
+[TabPFN] Running task: urban_d_bin_uni
+[urban_d_bin_uni] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(21), np.int64(1): np.int64(30), np.int64(2): np.int64(133), np.int64(3): np.int64(109), np.int64(4): np.int64(54), np.int64(5): np.int64(22), np.int64(6): np.int64(17), np.int64(7): np.int64(9)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(21), np.int64(1): np.int64(30), np.int64(2): np.int64(133), np.int64(3): np.int64(109), np.int64(4): np.int64(54), np.int64(5): np.int64(22), np.int64(6): np.int64(17), np.int64(7): np.int64(9)}，总样本数由 395 → 395
+[urban_d_bin_uni | RAW] CV R²: 0.6557 ± 0.0851 | MAE: 1.7934 ± 0.2403 | MSE: 14.3100 ± 4.0090
+[urban_d_bin_uni | RAW | holdout_0.2] TEST R²: 0.7947 | TEST MAE: 1.4895 | TEST MSE: 8.7340
+[TabPFN] Running task: kanda_z0_nobin
+[kanda_z0_nobin | RAW] CV R²: 0.7282 ± 0.1806 | MAE: 0.4871 ± 0.0502 | MSE: 0.7830 ± 0.3297
+[kanda_z0_nobin | RAW | holdout_0.2] TEST R²: 0.9331 | TEST MAE: 0.4580 | TEST MSE: 0.5032
+[TabPFN] Running task: kanda_z0_bin_uni
+[kanda_z0_bin_uni] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(52), np.int64(1): np.int64(26), np.int64(2): np.int64(10), np.int64(3): np.int64(1), np.int64(4): np.int64(2), np.int64(5): np.int64(3), np.int64(6): np.int64(1), np.int64(7): np.int64(1)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(52), np.int64(1): np.int64(26), np.int64(2): np.int64(10), np.int64(3): np.int64(1), np.int64(4): np.int64(2), np.int64(5): np.int64(3), np.int64(6): np.int64(1), np.int64(7): np.int64(1)}，总样本数由 96 → 96
+[kanda_z0_bin_uni | RAW] CV R²: 0.8256 ± 0.0453 | MAE: 0.4537 ± 0.0790 | MSE: 0.6115 ± 0.4030
+[kanda_z0_bin_uni | RAW | holdout_0.2] TEST R²: 0.9394 | TEST MAE: 0.4503 | TEST MSE: 0.4558
+[TabPFN] Running task: kanda_d_nobin
+[kanda_d_nobin | RAW] CV R²: 0.7633 ± 0.1647 | MAE: 3.4842 ± 1.0406 | MSE: 31.5841 ± 17.8835
+[kanda_d_nobin | RAW | holdout_0.2] TEST R²: 0.6672 | TEST MAE: 4.2300 | TEST MSE: 53.4281
+[TabPFN] Running task: kanda_d_bin_uni
+[kanda_d_bin_uni] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(12), np.int64(1): np.int64(31), np.int64(2): np.int64(22), np.int64(3): np.int64(8), np.int64(4): np.int64(8), np.int64(5): np.int64(6), np.int64(6): np.int64(4), np.int64(7): np.int64(5)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(12), np.int64(1): np.int64(31), np.int64(2): np.int64(22), np.int64(3): np.int64(8), np.int64(4): np.int64(8), np.int64(5): np.int64(6), np.int64(6): np.int64(4), np.int64(7): np.int64(5)}，总样本数由 96 → 96
+[kanda_d_bin_uni | RAW] CV R²: 0.7936 ± 0.0730 | MAE: 3.5280 ± 0.8897 | MSE: 30.4803 ± 11.2101
+[kanda_d_bin_uni | RAW | holdout_0.2] TEST R²: 0.6697 | TEST MAE: 4.2223 | TEST MSE: 53.0350
+[Done] TabPFN 交叉验证完成。

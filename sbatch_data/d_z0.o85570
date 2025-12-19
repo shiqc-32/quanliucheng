@@ -1,0 +1,9 @@
+[TabPFN] Running task: kanda_z0_no_d_tabpfn
+[kanda_z0_no_d_tabpfn|raw] CV R2: 0.7449
+   -> holdout_0.2 R2: 0.9233
+[Plot] Saved combined plot to: /stu02/shiqc24/d_z0_ML/quanliucheng/output/tabpfn/kanda_z0_no_d/kanda_z0_no_d_raw_combined_scatter.png
+[TabPFN] Running task: kanda_z0_with_d_tabpfn
+[kanda_z0_with_d_tabpfn|raw] CV R2: 0.7394
+   -> holdout_0.2 R2: 0.8579
+[Plot] Saved combined plot to: /stu02/shiqc24/d_z0_ML/quanliucheng/output/tabpfn/kanda_z0_with_d/kanda_z0_with_d_raw_combined_scatter.png
+[Done] TabPFN 交叉验证完成。

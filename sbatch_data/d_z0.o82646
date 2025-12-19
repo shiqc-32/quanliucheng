@@ -1,0 +1,4 @@
+[TabPFN] Running task: taskA
+[taskA | RAW] CV R²: 0.7173 ± 0.1508 | MAE: 0.3586 ± 0.0421 | MSE: 0.6225 ± 0.2661
+[taskA | RAW | holdout_0.2] TEST R²: 0.8244 | TEST MAE: 0.3407 | TEST MSE: 0.3571
+[Done] TabPFN 交叉验证完成。

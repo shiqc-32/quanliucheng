@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 70, in <module>
+    main()
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 66, in main
+    merge_rp_metadata_flow_by_mapping(cfg, df_map)
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/merge_rp_with_mapping.py", line 62, in merge_rp_metadata_flow_by_mapping
+    df_rp = pd.read_csv(paths["rp_csv"], sep=params.get("sep", ","), encoding=params.get("rp_encoding"))
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/stu02/shiqc24/d_z0_ML/quanliucheng/rp_ave_std.csv'

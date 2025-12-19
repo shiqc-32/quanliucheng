@@ -1,0 +1,20 @@
+[TabPFN] Running task: kanda_to_urban_d
+[kanda_to_urban_d] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(16), np.int64(1): np.int64(40), np.int64(2): np.int64(26), np.int64(3): np.int64(13), np.int64(4): np.int64(10), np.int64(5): np.int64(5), np.int64(6): np.int64(4), np.int64(7): np.int64(6)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(16), np.int64(1): np.int64(40), np.int64(2): np.int64(26), np.int64(3): np.int64(13), np.int64(4): np.int64(10), np.int64(5): np.int64(5), np.int64(6): np.int64(4), np.int64(7): np.int64(6)}，总样本数由 120 → 120
+[kanda_to_urban_d | RAW] CV R²: 0.7473 ± 0.1514 | MAE: 3.6791 ± 0.9674 | MSE: 36.8093 ± 21.6794
+[kanda_to_urban_d | RAW | explicit_train_test] TEST R²: 0.3009 | TEST MAE: 3.6684 | TEST MSE: 29.4130
+[TabPFN] Running task: kanda_to_urban_z0
+[kanda_to_urban_z0] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(71), np.int64(1): np.int64(33), np.int64(2): np.int64(7), np.int64(3): np.int64(2), np.int64(4): np.int64(4), np.int64(5): np.int64(1), np.int64(6): np.int64(1), np.int64(7): np.int64(1)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(71), np.int64(1): np.int64(33), np.int64(2): np.int64(7), np.int64(3): np.int64(2), np.int64(4): np.int64(4), np.int64(5): np.int64(1), np.int64(6): np.int64(1), np.int64(7): np.int64(1)}，总样本数由 120 → 120
+[kanda_to_urban_z0 | RAW] CV R²: 0.7535 ± 0.2326 | MAE: 0.4989 ± 0.1063 | MSE: 0.7088 ± 0.3976
+[kanda_to_urban_z0 | RAW | explicit_train_test] TEST R²: 0.3842 | TEST MAE: 0.6609 | TEST MSE: 0.7148
+[TabPFN] Running task: urban_to_kanda_d
+[urban_to_kanda_d] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(165), np.int64(1): np.int64(210), np.int64(2): np.int64(68), np.int64(3): np.int64(20), np.int64(4): np.int64(10), np.int64(5): np.int64(6), np.int64(6): np.int64(4), np.int64(7): np.int64(11)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(150), np.int64(1): np.int64(150), np.int64(2): np.int64(68), np.int64(3): np.int64(20), np.int64(4): np.int64(10), np.int64(5): np.int64(6), np.int64(6): np.int64(4), np.int64(7): np.int64(11)}，总样本数由 494 → 419
+[urban_to_kanda_d | RAW] CV R²: 0.7546 ± 0.1431 | MAE: 0.3007 ± 0.0496 | MSE: 0.2957 ± 0.1541
+[urban_to_kanda_d | RAW | explicit_train_test] TEST R²: 0.2276 | TEST MAE: 0.9264 | TEST MSE: 3.3018
+[TabPFN] 跳过任务 urban_to_kanda_z0：未配置
+[Done] TabPFN 交叉验证完成。

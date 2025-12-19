@@ -1,0 +1,21 @@
+[z-clean] 额外约束：删除 3 行（列 ['z0', 'd'] 中存在小于 0 的值）
+[z-clean] 完成：
+  输入： /stu02/shiqc24/d_z0_ML/quanliucheng/output/translation_data/urban_model_input.csv
+  输出： /stu02/shiqc24/d_z0_ML/quanliucheng/output/translation_data/urbanTALES_zclean.csv
+  模式： drop (阈值=3.0, 列=['lf', 'lp', 'have', 'hmax', 'hstd', 'd', 'z0'], keep_na=True)
+  总行（原始）    : 538
+  负值删除（z0/d): 3
+  Z-score 异常行 : 41
+  最终保留       : 494
+  总删除         : 44
+[z-clean] 完成：
+  输入： /stu02/shiqc24/d_z0_ML/quanliucheng/output/translation_data/kanda_input_data.csv
+  输出： /stu02/shiqc24/d_z0_ML/quanliucheng/output/translation_data/kanda_zclean.csv
+  模式： drop (阈值=3.0, 列=['lf', 'lp', 'have', 'hmax', 'hstd', 'd', 'z0'], keep_na=True)
+  总行（原始）    : 130
+  负值删除（z0/d): 0
+  Z-score 异常行 : 10
+  最终保留       : 120
+  总删除         : 10
+
+[Done] 两份数据的 Z-score 清洗完成。

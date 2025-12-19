@@ -1,0 +1,17 @@
+[TabPFN] Running task: kanda_z0_no_d_tabpfn
+[kanda_z0_no_d_tabpfn|raw] CV R2: 0.7540
+   -> holdout_0.2 R2: 0.9425
+[Plot] Saved combined plot to: /stu02/shiqc24/d_z0_ML/quanliucheng/output/tabpfn/kanda_z0_no_d/kanda_z0_no_d_raw_combined_scatter.png
+[TabPFN] Running task: kanda_z0_with_d_tabpfn
+[kanda_z0_with_d_tabpfn|raw] CV R2: 0.7667
+   -> holdout_0.2 R2: 0.7649
+[Plot] Saved combined plot to: /stu02/shiqc24/d_z0_ML/quanliucheng/output/tabpfn/kanda_z0_with_d/kanda_z0_with_d_raw_combined_scatter.png
+[TabPFN] Running task: urban_z0_no_d_tabpfn
+[urban_z0_no_d_tabpfn|raw] CV R2: 0.6482
+   -> holdout_0.2 R2: 0.8936
+[Plot] Saved combined plot to: /stu02/shiqc24/d_z0_ML/quanliucheng/output/tabpfn/urban_z0_no_d/urban_z0_no_d_raw_combined_scatter.png
+[TabPFN] Running task: urban_z0_with_d_tabpfn
+[urban_z0_with_d_tabpfn|raw] CV R2: 0.8236
+   -> holdout_0.2 R2: 0.9603
+[Plot] Saved combined plot to: /stu02/shiqc24/d_z0_ML/quanliucheng/output/tabpfn/urban_z0_with_d/urban_z0_with_d_raw_combined_scatter.png
+[Done] TabPFN 交叉验证完成。

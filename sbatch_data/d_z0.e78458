@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 31, in <module>
+    main()
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 23, in main
+    process_all_topos(
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/rp_stats.py", line 107, in process_all_topos
+    for folder in os.listdir(root_dir):
+FileNotFoundError: [Errno 2] No such file or directory: 'd_z0_ML/quanliucheng/data/urbanTALES/urbanTALES_realistic/'

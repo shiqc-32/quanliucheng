@@ -1,0 +1,5 @@
+lp
+lf
+have
+hmax
+hz0

@@ -1,0 +1,25 @@
+[TabPFN] Running task: kanda_to_urban_d
+[kanda_to_urban_d] Dual CSV with internal split 0.2...
+[kanda_to_urban_d|raw] CV R2: 0.7825
+   -> internal_0.2 R2: 0.6604
+   -> external_test R2: 0.3305
+[Plot] Saved combined plot to: /stu02/shiqc24/d_z0_ML/quanliucheng/output/tabpfn/kanda_to_urban_d/kanda_to_urban_d_raw_combined_scatter.png
+[TabPFN] Running task: kanda_to_urban_z0
+[kanda_to_urban_z0] Dual CSV with internal split 0.2...
+[kanda_to_urban_z0|raw] CV R2: 0.7394
+   -> internal_0.2 R2: 0.9147
+   -> external_test R2: 0.4271
+[Plot] Saved combined plot to: /stu02/shiqc24/d_z0_ML/quanliucheng/output/tabpfn/kanda_to_urban_z0/kanda_to_urban_z0_raw_combined_scatter.png
+[TabPFN] Running task: urban_to_kanda_d
+[urban_to_kanda_d] Dual CSV with internal split 0.2...
+[urban_to_kanda_d|raw] CV R2: 0.6039
+   -> internal_0.2 R2: 0.7547
+   -> external_test R2: 0.1835
+[Plot] Saved combined plot to: /stu02/shiqc24/d_z0_ML/quanliucheng/output/tabpfn/urban_to_kanda_d/urban_to_kanda_d_raw_combined_scatter.png
+[TabPFN] Running task: urban_to_kanda_z0
+[urban_to_kanda_z0] Dual CSV with internal split 0.2...
+[urban_to_kanda_z0|raw] CV R2: 0.6603
+   -> internal_0.2 R2: 0.8944
+   -> external_test R2: 0.2471
+[Plot] Saved combined plot to: /stu02/shiqc24/d_z0_ML/quanliucheng/output/tabpfn/urban_to_kanda_z0/urban_to_kanda_z0_raw_combined_scatter.png
+[TabPFN] Running task: urban_and_kanda_d

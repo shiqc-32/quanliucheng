@@ -1,0 +1,11 @@
+[TabPFN] Running task: kanda_single
+[kanda_single | LOG] CV R²: 0.7313 ± 0.1748 | MAE: 0.4785 ± 0.0491 | MSE: 0.7729 ± 0.3472
+[kanda_single | LOG | holdout_0.2] TEST R²: 0.9225 | TEST MAE: 0.4760 | TEST MSE: 0.5826
+[kanda_single | LOG] CV R²: 0.7313 ± 0.1748 | MAE: 0.4785 ± 0.0491 | MSE: 0.7729 ± 0.3472
+[kanda_single | LOG | holdout_0.2] TEST R²: 0.9225 | TEST MAE: 0.4760 | TEST MSE: 0.5826
+[TabPFN] Running task: urban_single
+[urban_single | LOG] CV R²: 0.7195 ± 0.1428 | MAE: 0.3562 ± 0.0456 | MSE: 0.6266 ± 0.2863
+[urban_single | LOG | holdout_0.2] TEST R²: 0.8412 | TEST MAE: 0.3305 | TEST MSE: 0.3229
+[urban_single | LOG] CV R²: 0.7195 ± 0.1428 | MAE: 0.3562 ± 0.0456 | MSE: 0.6266 ± 0.2863
+[urban_single | LOG | holdout_0.2] TEST R²: 0.8412 | TEST MAE: 0.3305 | TEST MSE: 0.3229
+[TabPFN] Running task: kanda_urban_mix

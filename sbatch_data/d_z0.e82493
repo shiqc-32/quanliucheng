@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 113, in <module>
+    main()
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 77, in main
+    select_and_rename_from_cfg(
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/select_and_rename.py", line 53, in select_and_rename_from_cfg
+    out_df = df[usecols].copy()
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 6212, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/core/indexes/base.py", line 6264, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['NameE', 'd', 'z0'] not in index"

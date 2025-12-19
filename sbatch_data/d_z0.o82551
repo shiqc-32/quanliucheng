@@ -1,0 +1,14 @@
+[Done] 选择并改名（urban）已输出：/stu02/shiqc24/d_z0_ML/quanliucheng/output/translation_data/urban_model_input.csv
+[Done] 选择并改名（kanda）已输出：/stu02/shiqc24/d_z0_ML/quanliucheng/output/translation_data/kanda_input_data.csv
+[z-clean] 完成：
+  输入： /stu02/shiqc24/d_z0_ML/quanliucheng/output/translation_data/urban_model_input.csv
+  输出： /stu02/shiqc24/d_z0_ML/quanliucheng/output/translation_data/urbanTALES_zclean.csv
+  模式： drop (阈值=3.0, 列=['lf', 'lp', 'have', 'hmax', 'hstd', 'd', 'z0'], keep_na=True)
+  总行 538；异常 29；保留 509；删除 29
+[z-clean] 完成：
+  输入： /stu02/shiqc24/d_z0_ML/quanliucheng/output/translation_data/kanda_input_data.csv
+  输出： /stu02/shiqc24/d_z0_ML/quanliucheng/output/translation_data/kanda_zclean.csv
+  模式： drop (阈值=3.0, 列=['lf', 'lp', 'have', 'hmax', 'hstd', 'd', 'z0'], keep_na=True)
+  总行 130；异常 10；保留 120；删除 10
+
+[Done] 两份数据的 Z-score 清洗完成。

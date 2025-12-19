@@ -1,0 +1,28 @@
+[TabPFN] Running task: urban_z0
+[urban_z0 | RAW] CV R²: 0.7259 ± 0.1270 | MAE: 0.2967 ± 0.0340 | MSE: 0.2706 ± 0.1133
+[urban_z0 | RAW | holdout_0.2] TEST R²: 0.8948 | TEST MAE: 0.2583 | TEST MSE: 0.1666
+[urban_z0 | LOG] CV R²: 0.7151 ± 0.1502 | MAE: 0.2967 ± 0.0321 | MSE: 0.2853 ± 0.1561
+[urban_z0 | LOG | holdout_0.2] TEST R²: 0.9104 | TEST MAE: 0.2451 | TEST MSE: 0.1420
+[TabPFN] Running task: urban_d
+[urban_d | RAW] CV R²: 0.6295 ± 0.1863 | MAE: 1.7979 ± 0.2456 | MSE: 14.5240 ± 7.0410
+[urban_d | RAW | holdout_0.2] TEST R²: 0.8052 | TEST MAE: 1.4670 | TEST MSE: 8.2840
+[urban_d | LOG] CV R²: 0.5715 ± 0.2126 | MAE: 1.9987 ± 0.3432 | MSE: 17.3916 ± 9.0918
+[urban_d | LOG | holdout_0.2] TEST R²: 0.8148 | TEST MAE: 1.4744 | TEST MSE: 7.8759
+[TabPFN] Running task: kanda_z0
+[kanda_z0 | RAW] CV R²: 0.7282 ± 0.1806 | MAE: 0.4871 ± 0.0502 | MSE: 0.7830 ± 0.3297
+[kanda_z0 | RAW | holdout_0.2] TEST R²: 0.9331 | TEST MAE: 0.4580 | TEST MSE: 0.5032
+[kanda_z0 | LOG] CV R²: 0.7313 ± 0.1748 | MAE: 0.4785 ± 0.0491 | MSE: 0.7729 ± 0.3472
+[kanda_z0 | LOG | holdout_0.2] TEST R²: 0.9225 | TEST MAE: 0.4760 | TEST MSE: 0.5826
+[TabPFN] Running task: kanda_d
+[kanda_d | RAW] CV R²: 0.7633 ± 0.1647 | MAE: 3.4842 ± 1.0406 | MSE: 31.5841 ± 17.8835
+[kanda_d | RAW | holdout_0.2] TEST R²: 0.6672 | TEST MAE: 4.2300 | TEST MSE: 53.4281
+[kanda_d | LOG] CV R²: 0.7470 ± 0.1714 | MAE: 3.6727 ± 1.0573 | MSE: 34.3778 ± 19.6084
+[kanda_d | LOG | holdout_0.2] TEST R²: 0.6859 | TEST MAE: 4.1912 | TEST MSE: 50.4363
+[Done] TabPFN 交叉验证完成。
+[TabPFN] Running task: kanda_z0_with_d_tabpfn
+[kanda_z0_with_d_tabpfn | RAW] CV R²: 0.7499 ± 0.2084 | MAE: 0.4493 ± 0.0665 | MSE: 0.6797 ± 0.3054
+[kanda_z0_with_d_tabpfn | RAW | holdout_0.2] TEST R²: 0.8613 | TEST MAE: 0.5000 | TEST MSE: 1.0430
+[TabPFN] Running task: urban_z0_with_d_tabpfn
+[urban_z0_with_d_tabpfn | RAW] CV R²: 0.8385 ± 0.0971 | MAE: 0.1956 ± 0.0268 | MSE: 0.1649 ± 0.1074
+[urban_z0_with_d_tabpfn | RAW | holdout_0.2] TEST R²: 0.9625 | TEST MAE: 0.1374 | TEST MSE: 0.0594
+[Done] TabPFN 交叉验证完成。

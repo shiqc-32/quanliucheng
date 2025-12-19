@@ -1,0 +1,11 @@
+[TabPFN] Running task: urban_and_kanda_d
+[urban_and_kanda_d] 模式：多 CSV 合并输入 (in_csv_list)
+[urban_and_kanda_d|raw] CV R2: 0.7740
+   -> holdout_0.2 R2: 0.7071
+[Plot] Saved combined plot to: /stu02/shiqc24/d_z0_ML/quanliucheng/output/tabpfn/urban_and_kanda_d/urban_and_kanda_d_raw_combined_scatter.png
+[TabPFN] Running task: urban_and_kanda_z0
+[urban_and_kanda_z0] 模式：多 CSV 合并输入 (in_csv_list)
+[urban_and_kanda_z0|raw] CV R2: 0.8262
+   -> holdout_0.2 R2: 0.8229
+[Plot] Saved combined plot to: /stu02/shiqc24/d_z0_ML/quanliucheng/output/tabpfn/urban_and_kanda_z0/urban_and_kanda_z0_raw_combined_scatter.png
+[Done] TabPFN 交叉验证完成。

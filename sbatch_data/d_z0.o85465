@@ -1,0 +1,6 @@
+[rur_simple] Reading data from: /stu02/shiqc24/d_z0_ML/quanliucheng/output/phys_schemes/rp_profiles.csv and /stu02/shiqc24/d_z0_ML/quanliucheng/output/phys_schemes/r_f_total.csv
+--- Debug Site 1 ---
+nL: 0
+Have: nan, Hmax: 0.0000
+d_o_H: 0.0000, z0_o_H: 0.0000
+[rur_simple] Done. Wrote results to: /stu02/shiqc24/d_z0_ML/quanliucheng/output/translation_data/z0_nan_sites.csv

@@ -1,0 +1,7 @@
+[TabPFN] 跳过任务 task_tabpfn_single：未配置
+[TabPFN] Running task: task_tabpfn_dual
+[task_tabpfn_dual | RAW] CV R²: 0.8510 ± 0.1525 | MAE: 0.2113 ± 0.0250 | MSE: 0.3337 ± 0.3204
+[task_tabpfn_dual | RAW | explicit_train_test] TEST R²: 0.5901 | TEST MAE: 0.7596 | TEST MSE: 1.7522
+[task_tabpfn_dual | RAW] CV R²: 0.8510 ± 0.1525 | MAE: 0.2113 ± 0.0250 | MSE: 0.3337 ± 0.3204
+[task_tabpfn_dual | RAW | explicit_train_test] TEST R²: 0.5901 | TEST MAE: 0.7596 | TEST MSE: 1.7522
+[Done] TabPFN 交叉验证完成。

@@ -1,0 +1,88 @@
+[TabPFN] Running task: kanda_z0_no_d_tabpfn
+[kanda_z0_no_d_tabpfn] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(52), np.int64(1): np.int64(26), np.int64(2): np.int64(10), np.int64(3): np.int64(1), np.int64(4): np.int64(2), np.int64(5): np.int64(3), np.int64(6): np.int64(1), np.int64(7): np.int64(1)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(52), np.int64(1): np.int64(26), np.int64(2): np.int64(10), np.int64(3): np.int64(1), np.int64(4): np.int64(2), np.int64(5): np.int64(3), np.int64(6): np.int64(1), np.int64(7): np.int64(1)}，总样本数由 96 → 96
+[kanda_z0_no_d_tabpfn | RAW] CV R²: 0.8252 ± 0.0539 | MAE: 0.4564 ± 0.0893 | MSE: 0.6169 ± 0.4395
+[kanda_z0_no_d_tabpfn | RAW | holdout_0.2] TEST R²: 0.9260 | TEST MAE: 0.4678 | TEST MSE: 0.5562
+[TabPFN] Running task: kanda_z0_with_d_tabpfn
+[kanda_z0_with_d_tabpfn] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(52), np.int64(1): np.int64(26), np.int64(2): np.int64(10), np.int64(3): np.int64(1), np.int64(4): np.int64(2), np.int64(5): np.int64(3), np.int64(6): np.int64(1), np.int64(7): np.int64(1)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(52), np.int64(1): np.int64(26), np.int64(2): np.int64(10), np.int64(3): np.int64(1), np.int64(4): np.int64(2), np.int64(5): np.int64(3), np.int64(6): np.int64(1), np.int64(7): np.int64(1)}，总样本数由 96 → 96
+[kanda_z0_with_d_tabpfn | RAW] CV R²: 0.8512 ± 0.0470 | MAE: 0.4230 ± 0.0729 | MSE: 0.5459 ± 0.4104
+[kanda_z0_with_d_tabpfn | RAW | holdout_0.2] TEST R²: 0.9151 | TEST MAE: 0.4537 | TEST MSE: 0.6384
+[TabPFN] Running task: urban_z0_no_d_tabpfn
+[urban_z0_no_d_tabpfn] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(134), np.int64(1): np.int64(160), np.int64(2): np.int64(58), np.int64(3): np.int64(20), np.int64(4): np.int64(9), np.int64(5): np.int64(5), np.int64(6): np.int64(2), np.int64(7): np.int64(7)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(134), np.int64(1): np.int64(150), np.int64(2): np.int64(58), np.int64(3): np.int64(20), np.int64(4): np.int64(9), np.int64(5): np.int64(5), np.int64(6): np.int64(2), np.int64(7): np.int64(7)}，总样本数由 395 → 385
+[urban_z0_no_d_tabpfn | RAW] CV R²: 0.7956 ± 0.0431 | MAE: 0.2863 ± 0.0307 | MSE: 0.2222 ± 0.0999
+[urban_z0_no_d_tabpfn | RAW | holdout_0.2] TEST R²: 0.8888 | TEST MAE: 0.2613 | TEST MSE: 0.1761
+[TabPFN] Running task: urban_z0_with_d_tabpfn
+[urban_z0_with_d_tabpfn] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(134), np.int64(1): np.int64(160), np.int64(2): np.int64(58), np.int64(3): np.int64(20), np.int64(4): np.int64(9), np.int64(5): np.int64(5), np.int64(6): np.int64(2), np.int64(7): np.int64(7)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(134), np.int64(1): np.int64(150), np.int64(2): np.int64(58), np.int64(3): np.int64(20), np.int64(4): np.int64(9), np.int64(5): np.int64(5), np.int64(6): np.int64(2), np.int64(7): np.int64(7)}，总样本数由 395 → 385
+[urban_z0_with_d_tabpfn | RAW] CV R²: 0.8531 ± 0.0424 | MAE: 0.1953 ± 0.0206 | MSE: 0.1503 ± 0.0345
+[urban_z0_with_d_tabpfn | RAW | holdout_0.2] TEST R²: 0.9618 | TEST MAE: 0.1367 | TEST MSE: 0.0605
+[Done] TabPFN 交叉验证完成。
+[RF] Running task: kanda_z0_no_d_rf
+[kanda_z0_no_d_rf | RAW] CV R²: 0.7158 ± 0.2029 | MAE: 0.5886 ± 0.1630 | MSE: 1.0351 ± 1.1021
+[kanda_z0_no_d_rf | RAW | holdout_0.2] TEST R²: 0.6818 | TEST MAE: 0.7803 | TEST MSE: 2.3918
+[RF] Running task: kanda_z0_with_d_rf
+[kanda_z0_with_d_rf | RAW] CV R²: 0.6689 ± 0.1885 | MAE: 0.6264 ± 0.1664 | MSE: 1.1255 ± 1.0137
+[kanda_z0_with_d_rf | RAW | holdout_0.2] TEST R²: 0.5767 | TEST MAE: 0.8235 | TEST MSE: 3.1823
+[RF] Running task: urban_z0_no_d_rf
+[urban_z0_no_d_rf | RAW] CV R²: 0.6663 ± 0.1461 | MAE: 0.3412 ± 0.0203 | MSE: 0.3295 ± 0.1008
+[urban_z0_no_d_rf | RAW | holdout_0.2] TEST R²: 0.9064 | TEST MAE: 0.2662 | TEST MSE: 0.1482
+[RF] Running task: urban_z0_with_d_rf
+[urban_z0_with_d_rf | RAW] CV R²: 0.7181 ± 0.1215 | MAE: 0.3052 ± 0.0273 | MSE: 0.2795 ± 0.0940
+[urban_z0_with_d_rf | RAW | holdout_0.2] TEST R²: 0.9154 | TEST MAE: 0.2323 | TEST MSE: 0.1339
+[Done] 随机森林交叉验证完成。
+[GBR] Running task: kanda_z0_no_d_gbr
+[GBR|Bayes] mode=raw | n_iter=40, cv=3
+[GBR|Bayes] best_score=-0.888998
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.29999999999999993), ('max_depth', 6), ('max_features', 1.0), ('min_samples_leaf', 7), ('min_samples_split', 14), ('n_estimators', 86), ('subsample', 0.6667557034194643)])
+[kanda_z0_no_d_gbr | RAW] CV R²: 0.6138 ± 0.1901 | MAE: 0.6720 ± 0.0797 | MSE: 1.1880 ± 0.5864
+[kanda_z0_no_d_gbr | RAW | holdout_0.2] TEST R²: 0.7426 | TEST MAE: 0.8086 | TEST MSE: 1.9352
+[GBR] Running task: kanda_z0_with_d_gbr
+[GBR|Bayes] mode=raw | n_iter=40, cv=3
+[GBR|Bayes] best_score=-0.994855
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.06465941144600404), ('max_depth', 5), ('max_features', 1.0), ('min_samples_leaf', 7), ('min_samples_split', 15), ('n_estimators', 500), ('subsample', 0.6127970776644655)])
+[kanda_z0_with_d_gbr | RAW] CV R²: 0.6922 ± 0.0879 | MAE: 0.6282 ± 0.0582 | MSE: 0.9936 ± 0.4966
+[kanda_z0_with_d_gbr | RAW | holdout_0.2] TEST R²: 0.7337 | TEST MAE: 0.7952 | TEST MSE: 2.0022
+[GBR] Running task: urban_z0_no_d_gbr
+[GBR|Bayes] mode=raw | n_iter=40, cv=3
+[GBR|Bayes] best_score=-0.296691
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.1009257814171257), ('max_depth', 6), ('max_features', 0.4196779818864303), ('min_samples_leaf', 8), ('min_samples_split', 11), ('n_estimators', 495), ('subsample', 1.0)])
+[urban_z0_no_d_gbr | RAW] CV R²: 0.7251 ± 0.1412 | MAE: 0.3081 ± 0.0364 | MSE: 0.2758 ± 0.1425
+[urban_z0_no_d_gbr | RAW | holdout_0.2] TEST R²: 0.8990 | TEST MAE: 0.2764 | TEST MSE: 0.1600
+[GBR] Running task: urban_z0_with_d_gbr
+[GBR|Bayes] mode=raw | n_iter=40, cv=3
+[GBR|Bayes] best_score=-0.213480
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.29999999999999993), ('max_depth', 3), ('max_features', 0.3), ('min_samples_leaf', 6), ('min_samples_split', 4), ('n_estimators', 256), ('subsample', 1.0)])
+[urban_z0_with_d_gbr | RAW] CV R²: 0.7631 ± 0.1047 | MAE: 0.2670 ± 0.0250 | MSE: 0.2420 ± 0.1080
+[urban_z0_with_d_gbr | RAW | holdout_0.2] TEST R²: 0.9457 | TEST MAE: 0.1894 | TEST MSE: 0.0860
+[Done] GBRM 交叉验证完成。
+[SVR] Running task: kanda_z0_no_d_svr
+[SVR|Bayes] mode=raw | n_iter=40, cv=3
+[SVR|Bayes] best_score=-0.709262
+[SVR|Bayes] best_params=OrderedDict([('svr__C', 1000.0), ('svr__epsilon', 0.015337889383894906), ('svr__gamma', 0.005642534445670064), ('svr__kernel', 'rbf')])
+[kanda_z0_no_d_svr | RAW] CV R²: 0.7708 ± 0.1326 | MAE: 0.4736 ± 0.0809 | MSE: 0.7254 ± 0.5403
+[kanda_z0_no_d_svr | RAW | holdout_0.2] TEST R²: 0.8333 | TEST MAE: 0.5409 | TEST MSE: 1.2529
+[SVR] Running task: kanda_z0_with_d_svr
+[SVR|Bayes] mode=raw | n_iter=40, cv=3
+[SVR|Bayes] best_score=-0.721537
+[SVR|Bayes] best_params=OrderedDict([('svr__C', 71.49232843214303), ('svr__epsilon', 0.0014625002577700469), ('svr__gamma', 0.011167126691701978), ('svr__kernel', 'rbf')])
+[kanda_z0_with_d_svr | RAW] CV R²: 0.7524 ± 0.1490 | MAE: 0.4915 ± 0.0611 | MSE: 0.7467 ± 0.4511
+[kanda_z0_with_d_svr | RAW | holdout_0.2] TEST R²: 0.7412 | TEST MAE: 0.5818 | TEST MSE: 1.9452
+[SVR] Running task: urban_z0_no_d_svr
+[SVR|Bayes] mode=raw | n_iter=40, cv=3
+[SVR|Bayes] best_score=-0.374886
+[SVR|Bayes] best_params=OrderedDict([('svr__C', 9.376482002326517), ('svr__epsilon', 0.06087892493274599), ('svr__gamma', 0.10280460870678856), ('svr__kernel', 'rbf')])
+[urban_z0_no_d_svr | RAW] CV R²: 0.6255 ± 0.1239 | MAE: 0.3640 ± 0.0342 | MSE: 0.3741 ± 0.0763
+[urban_z0_no_d_svr | RAW | holdout_0.2] TEST R²: 0.7952 | TEST MAE: 0.3284 | TEST MSE: 0.3244
+[SVR] Running task: urban_z0_with_d_svr
+[SVR|Bayes] mode=raw | n_iter=40, cv=3
+[SVR|Bayes] best_score=-0.349530
+[SVR|Bayes] best_params=OrderedDict([('svr__C', 11.350021361645483), ('svr__epsilon', 0.001), ('svr__gamma', 0.04833998875468634), ('svr__kernel', 'rbf')])
+[urban_z0_with_d_svr | RAW] CV R²: 0.6650 ± 0.1503 | MAE: 0.2991 ± 0.0309 | MSE: 0.3304 ± 0.1275
+[urban_z0_with_d_svr | RAW | holdout_0.2] TEST R²: 0.8132 | TEST MAE: 0.2475 | TEST MSE: 0.2958
+[Done] SVR 交叉验证完成。

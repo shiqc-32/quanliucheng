@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 62, in <module>
+    main()
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 58, in main
+    df_map.to_csv(paths["output_csv"], index=False, encoding="gkb")
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/util/_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/core/generic.py", line 3986, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/io/formats/format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/io/formats/csvs.py", line 251, in save
+    with get_handle(
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/io/common.py", line 723, in get_handle
+    codecs.lookup(encoding)
+LookupError: unknown encoding: gkb

@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 62, in <module>
+    main()
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 39, in main
+    df_map, stats = build_case_name_mapping(
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/case_name_mapping.py", line 102, in build_case_name_mapping
+    df_meta = pd.read_csv(metadata_csv_path, encoding=meta_encoding, sep=sep)
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1898, in _make_engine
+    return mapping[engine](f, **self.options)
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 93, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 574, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 663, in pandas._libs.parsers.TextReader._get_header
+  File "pandas/_libs/parsers.pyx", line 874, in pandas._libs.parsers.TextReader._tokenize_rows
+  File "pandas/_libs/parsers.pyx", line 891, in pandas._libs.parsers.TextReader._check_tokenize_status
+  File "pandas/_libs/parsers.pyx", line 2053, in pandas._libs.parsers.raise_parser_error
+UnicodeDecodeError: 'utf-8' codec can't decode bytes in position 66701-66702: invalid continuation byte

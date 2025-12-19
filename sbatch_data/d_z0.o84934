@@ -1,0 +1,160 @@
+[TabPFN] Running task: urban_z0_nobin
+[urban_z0_nobin | RAW] CV R²: 0.7284 ± 0.1256 | MAE: 0.2963 ± 0.0345 | MSE: 0.2681 ± 0.1113
+[urban_z0_nobin | RAW | holdout_0.2] TEST R²: 0.8920 | TEST MAE: 0.2596 | TEST MSE: 0.1710
+[TabPFN] Running task: urban_z0_bin_uni
+[urban_z0_bin_uni] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(134), np.int64(1): np.int64(160), np.int64(2): np.int64(58), np.int64(3): np.int64(20), np.int64(4): np.int64(9), np.int64(5): np.int64(5), np.int64(6): np.int64(2), np.int64(7): np.int64(7)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(134), np.int64(1): np.int64(150), np.int64(2): np.int64(58), np.int64(3): np.int64(20), np.int64(4): np.int64(9), np.int64(5): np.int64(5), np.int64(6): np.int64(2), np.int64(7): np.int64(7)}，总样本数由 395 → 385
+[urban_z0_bin_uni | RAW] CV R²: 0.7956 ± 0.0431 | MAE: 0.2863 ± 0.0307 | MSE: 0.2222 ± 0.0999
+[urban_z0_bin_uni | RAW | holdout_0.2] TEST R²: 0.8888 | TEST MAE: 0.2613 | TEST MSE: 0.1761
+[TabPFN] Running task: urban_d_nobin
+[urban_d_nobin | RAW] CV R²: 0.6313 ± 0.1850 | MAE: 1.7953 ± 0.2347 | MSE: 14.4383 ± 6.8947
+[urban_d_nobin | RAW | holdout_0.2] TEST R²: 0.7952 | TEST MAE: 1.4893 | TEST MSE: 8.7123
+[TabPFN] Running task: urban_d_bin_uni
+[urban_d_bin_uni] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(21), np.int64(1): np.int64(30), np.int64(2): np.int64(133), np.int64(3): np.int64(109), np.int64(4): np.int64(54), np.int64(5): np.int64(22), np.int64(6): np.int64(17), np.int64(7): np.int64(9)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(21), np.int64(1): np.int64(30), np.int64(2): np.int64(133), np.int64(3): np.int64(109), np.int64(4): np.int64(54), np.int64(5): np.int64(22), np.int64(6): np.int64(17), np.int64(7): np.int64(9)}，总样本数由 395 → 395
+[urban_d_bin_uni | RAW] CV R²: 0.6580 ± 0.0794 | MAE: 1.7887 ± 0.2369 | MSE: 14.2045 ± 3.7336
+[urban_d_bin_uni | RAW | holdout_0.2] TEST R²: 0.8025 | TEST MAE: 1.4760 | TEST MSE: 8.3987
+[TabPFN] Running task: kanda_z0_nobin
+[kanda_z0_nobin | RAW] CV R²: 0.7449 ± 0.1663 | MAE: 0.4775 ± 0.0516 | MSE: 0.7369 ± 0.3310
+[kanda_z0_nobin | RAW | holdout_0.2] TEST R²: 0.9233 | TEST MAE: 0.4730 | TEST MSE: 0.5763
+[TabPFN] Running task: kanda_z0_bin_uni
+[kanda_z0_bin_uni] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(52), np.int64(1): np.int64(26), np.int64(2): np.int64(10), np.int64(3): np.int64(1), np.int64(4): np.int64(2), np.int64(5): np.int64(3), np.int64(6): np.int64(1), np.int64(7): np.int64(1)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(52), np.int64(1): np.int64(26), np.int64(2): np.int64(10), np.int64(3): np.int64(1), np.int64(4): np.int64(2), np.int64(5): np.int64(3), np.int64(6): np.int64(1), np.int64(7): np.int64(1)}，总样本数由 96 → 96
+[kanda_z0_bin_uni | RAW] CV R²: 0.8252 ± 0.0539 | MAE: 0.4564 ± 0.0893 | MSE: 0.6169 ± 0.4395
+[kanda_z0_bin_uni | RAW | holdout_0.2] TEST R²: 0.9260 | TEST MAE: 0.4678 | TEST MSE: 0.5562
+[TabPFN] Running task: kanda_d_nobin
+[kanda_d_nobin | RAW] CV R²: 0.7652 ± 0.1669 | MAE: 3.4605 ± 1.0533 | MSE: 31.2942 ± 18.0169
+[kanda_d_nobin | RAW | holdout_0.2] TEST R²: 0.6679 | TEST MAE: 4.2325 | TEST MSE: 53.3254
+[TabPFN] Running task: kanda_d_bin_uni
+[kanda_d_bin_uni] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(12), np.int64(1): np.int64(31), np.int64(2): np.int64(22), np.int64(3): np.int64(8), np.int64(4): np.int64(8), np.int64(5): np.int64(6), np.int64(6): np.int64(4), np.int64(7): np.int64(5)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(12), np.int64(1): np.int64(31), np.int64(2): np.int64(22), np.int64(3): np.int64(8), np.int64(4): np.int64(8), np.int64(5): np.int64(6), np.int64(6): np.int64(4), np.int64(7): np.int64(5)}，总样本数由 96 → 96
+[kanda_d_bin_uni | RAW] CV R²: 0.7949 ± 0.0723 | MAE: 3.5318 ± 0.9051 | MSE: 30.2956 ± 11.1528
+[kanda_d_bin_uni | RAW | holdout_0.2] TEST R²: 0.6567 | TEST MAE: 4.2433 | TEST MSE: 55.1166
+[Done] TabPFN 交叉验证完成。
+[RF] Running task: urban_z0_nobin
+[urban_z0_nobin | RAW] CV R²: 0.6663 ± 0.1461 | MAE: 0.3412 ± 0.0203 | MSE: 0.3295 ± 0.1008
+[urban_z0_nobin | RAW | holdout_0.2] TEST R²: 0.9064 | TEST MAE: 0.2662 | TEST MSE: 0.1482
+[RF] Running task: urban_z0_bin_uni
+[urban_z0_bin_uni | RAW] CV R²: 0.6663 ± 0.1461 | MAE: 0.3412 ± 0.0203 | MSE: 0.3295 ± 0.1008
+[urban_z0_bin_uni | RAW | holdout_0.2] TEST R²: 0.9064 | TEST MAE: 0.2662 | TEST MSE: 0.1482
+[RF] Running task: urban_d_nobin
+[urban_d_nobin | RAW] CV R²: 0.6667 ± 0.1714 | MAE: 1.8902 ± 0.2608 | MSE: 13.0040 ± 6.1072
+[urban_d_nobin | RAW | holdout_0.2] TEST R²: 0.8331 | TEST MAE: 1.5309 | TEST MSE: 7.1004
+[RF] Running task: urban_d_bin_uni
+[urban_d_bin_uni | RAW] CV R²: 0.6667 ± 0.1714 | MAE: 1.8902 ± 0.2608 | MSE: 13.0040 ± 6.1072
+[urban_d_bin_uni | RAW | holdout_0.2] TEST R²: 0.8331 | TEST MAE: 1.5309 | TEST MSE: 7.1004
+[RF] Running task: kanda_z0_nobin
+[kanda_z0_nobin | RAW] CV R²: 0.7158 ± 0.2029 | MAE: 0.5886 ± 0.1630 | MSE: 1.0351 ± 1.1021
+[kanda_z0_nobin | RAW | holdout_0.2] TEST R²: 0.6818 | TEST MAE: 0.7803 | TEST MSE: 2.3918
+[RF] Running task: kanda_z0_bin_uni
+[kanda_z0_bin_uni | RAW] CV R²: 0.7158 ± 0.2029 | MAE: 0.5886 ± 0.1630 | MSE: 1.0351 ± 1.1021
+[kanda_z0_bin_uni | RAW | holdout_0.2] TEST R²: 0.6818 | TEST MAE: 0.7803 | TEST MSE: 2.3918
+[RF] Running task: kanda_d_nobin
+[kanda_d_nobin | RAW] CV R²: 0.7696 ± 0.0915 | MAE: 3.9324 ± 1.0524 | MSE: 33.4723 ± 18.3756
+[kanda_d_nobin | RAW | holdout_0.2] TEST R²: 0.6766 | TEST MAE: 4.5157 | TEST MSE: 51.9328
+[RF] Running task: kanda_d_bin_uni
+[kanda_d_bin_uni | RAW] CV R²: 0.7696 ± 0.0915 | MAE: 3.9324 ± 1.0524 | MSE: 33.4723 ± 18.3756
+[kanda_d_bin_uni | RAW | holdout_0.2] TEST R²: 0.6766 | TEST MAE: 4.5157 | TEST MSE: 51.9328
+[Done] 随机森林交叉验证完成。
+[GBR] Running task: urban_z0_nobin
+[GBR|Bayes] mode=raw | n_iter=40, cv=3
+[GBR|Bayes] best_score=-0.325559
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.014547844489032812), ('max_depth', 3), ('n_estimators', 1041), ('subsample', 0.5)])
+[urban_z0_nobin | RAW] CV R²: 0.6868 ± 0.1587 | MAE: 0.3269 ± 0.0382 | MSE: 0.3116 ± 0.1291
+[urban_z0_nobin | RAW | holdout_0.2] TEST R²: 0.9185 | TEST MAE: 0.2500 | TEST MSE: 0.1291
+[GBR] Running task: urban_z0_bin_uni
+[GBR|Bayes] mode=raw | n_iter=40, cv=3
+[GBR|Bayes] best_score=-0.325559
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.014547844489032812), ('max_depth', 3), ('n_estimators', 1041), ('subsample', 0.5)])
+[urban_z0_bin_uni | RAW] CV R²: 0.6868 ± 0.1587 | MAE: 0.3269 ± 0.0382 | MSE: 0.3116 ± 0.1291
+[urban_z0_bin_uni | RAW | holdout_0.2] TEST R²: 0.9185 | TEST MAE: 0.2500 | TEST MSE: 0.1291
+[GBR] Running task: urban_d_nobin
+[GBR|Bayes] mode=raw | n_iter=40, cv=3
+[GBR|Bayes] best_score=-14.045104
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.02472364971545377), ('max_depth', 7), ('n_estimators', 791), ('subsample', 0.929311423482952)])
+[urban_d_nobin | RAW] CV R²: 0.6665 ± 0.1598 | MAE: 1.8637 ± 0.1853 | MSE: 13.1638 ± 6.0187
+[urban_d_nobin | RAW | holdout_0.2] TEST R²: 0.8684 | TEST MAE: 1.4286 | TEST MSE: 5.5959
+[GBR] Running task: urban_d_bin_uni
+[GBR|Bayes] mode=raw | n_iter=40, cv=3
+[GBR|Bayes] best_score=-14.045104
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.02472364971545377), ('max_depth', 7), ('n_estimators', 791), ('subsample', 0.929311423482952)])
+[urban_d_bin_uni | RAW] CV R²: 0.6665 ± 0.1598 | MAE: 1.8637 ± 0.1853 | MSE: 13.1638 ± 6.0187
+[urban_d_bin_uni | RAW | holdout_0.2] TEST R²: 0.8684 | TEST MAE: 1.4286 | TEST MSE: 5.5959
+[GBR] Running task: kanda_z0_nobin
+[GBR|Bayes] mode=raw | n_iter=40, cv=3
+[GBR|Bayes] best_score=-1.026269
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.06511021866029006), ('max_depth', 2), ('n_estimators', 1220), ('subsample', 0.8841654032388191)])
+[kanda_z0_nobin | RAW] CV R²: 0.6701 ± 0.1810 | MAE: 0.6132 ± 0.1074 | MSE: 1.1368 ± 1.0105
+[kanda_z0_nobin | RAW | holdout_0.2] TEST R²: 0.6990 | TEST MAE: 0.7919 | TEST MSE: 2.2629
+[GBR] Running task: kanda_z0_bin_uni
+[GBR|Bayes] mode=raw | n_iter=40, cv=3
+[GBR|Bayes] best_score=-1.026269
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.06511021866029006), ('max_depth', 2), ('n_estimators', 1220), ('subsample', 0.8841654032388191)])
+[kanda_z0_bin_uni | RAW] CV R²: 0.6701 ± 0.1810 | MAE: 0.6132 ± 0.1074 | MSE: 1.1368 ± 1.0105
+[kanda_z0_bin_uni | RAW | holdout_0.2] TEST R²: 0.6990 | TEST MAE: 0.7919 | TEST MSE: 2.2629
+[GBR] Running task: kanda_d_nobin
+[GBR|Bayes] mode=raw | n_iter=40, cv=3
+[GBR|Bayes] best_score=-34.193446
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.051581988780852704), ('max_depth', 2), ('n_estimators', 100), ('subsample', 0.7899569128608247)])
+[kanda_d_nobin | RAW] CV R²: 0.7337 ± 0.1420 | MAE: 4.0481 ± 0.8969 | MSE: 35.2135 ± 15.9585
+[kanda_d_nobin | RAW | holdout_0.2] TEST R²: 0.6925 | TEST MAE: 4.6177 | TEST MSE: 49.3795
+[GBR] Running task: kanda_d_bin_uni
+[GBR|Bayes] mode=raw | n_iter=40, cv=3
+[GBR|Bayes] best_score=-34.193446
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.051581988780852704), ('max_depth', 2), ('n_estimators', 100), ('subsample', 0.7899569128608247)])
+[kanda_d_bin_uni | RAW] CV R²: 0.7337 ± 0.1420 | MAE: 4.0481 ± 0.8969 | MSE: 35.2135 ± 15.9585
+[kanda_d_bin_uni | RAW | holdout_0.2] TEST R²: 0.6925 | TEST MAE: 4.6177 | TEST MSE: 49.3795
+[Done] GBRM 交叉验证完成。
+[SVR] Running task: urban_z0_nobin
+[SVR|Bayes] mode=raw | n_iter=40, cv=3
+[SVR|Bayes] best_score=-0.398451
+[SVR|Bayes] best_params=OrderedDict([('C', 51.46962532244452), ('epsilon', 0.001), ('gamma', 0.007317909078029781)])
+[urban_z0_nobin | RAW] CV R²: 0.5305 ± 0.2659 | MAE: 0.3987 ± 0.0314 | MSE: 0.4517 ± 0.1730
+[urban_z0_nobin | RAW | holdout_0.2] TEST R²: 0.7521 | TEST MAE: 0.3490 | TEST MSE: 0.3926
+[SVR] Running task: urban_z0_bin_uni
+[SVR|Bayes] mode=raw | n_iter=40, cv=3
+[SVR|Bayes] best_score=-0.398451
+[SVR|Bayes] best_params=OrderedDict([('C', 51.46962532244452), ('epsilon', 0.001), ('gamma', 0.007317909078029781)])
+[urban_z0_bin_uni | RAW] CV R²: 0.5305 ± 0.2659 | MAE: 0.3987 ± 0.0314 | MSE: 0.4517 ± 0.1730
+[urban_z0_bin_uni | RAW | holdout_0.2] TEST R²: 0.7521 | TEST MAE: 0.3490 | TEST MSE: 0.3926
+[SVR] Running task: urban_d_nobin
+[SVR|Bayes] mode=raw | n_iter=40, cv=3
+[SVR|Bayes] best_score=-21.329714
+[SVR|Bayes] best_params=OrderedDict([('C', 975.7305286664026), ('epsilon', 1.0), ('gamma', 0.000650995464277146)])
+[urban_d_nobin | RAW] CV R²: 0.5091 ± 0.2474 | MAE: 2.3489 ± 0.2569 | MSE: 19.0288 ± 8.2649
+[urban_d_nobin | RAW | holdout_0.2] TEST R²: 0.5790 | TEST MAE: 2.1729 | TEST MSE: 17.9058
+[SVR] Running task: urban_d_bin_uni
+[SVR|Bayes] mode=raw | n_iter=40, cv=3
+[SVR|Bayes] best_score=-21.329714
+[SVR|Bayes] best_params=OrderedDict([('C', 975.7305286664026), ('epsilon', 1.0), ('gamma', 0.000650995464277146)])
+[urban_d_bin_uni | RAW] CV R²: 0.5091 ± 0.2474 | MAE: 2.3489 ± 0.2569 | MSE: 19.0288 ± 8.2649
+[urban_d_bin_uni | RAW | holdout_0.2] TEST R²: 0.5790 | TEST MAE: 2.1729 | TEST MSE: 17.9058
+[SVR] Running task: kanda_z0_nobin
+[SVR|Bayes] mode=raw | n_iter=40, cv=3
+[SVR|Bayes] best_score=-1.145018
+[SVR|Bayes] best_params=OrderedDict([('C', 1000.0), ('epsilon', 0.001), ('gamma', 0.0001)])
+[kanda_z0_nobin | RAW] CV R²: 0.7126 ± 0.1363 | MAE: 0.5590 ± 0.1191 | MSE: 1.0375 ± 0.8333
+[kanda_z0_nobin | RAW | holdout_0.2] TEST R²: 0.5568 | TEST MAE: 0.8036 | TEST MSE: 3.3315
+[SVR] Running task: kanda_z0_bin_uni
+[SVR|Bayes] mode=raw | n_iter=40, cv=3
+[SVR|Bayes] best_score=-1.145018
+[SVR|Bayes] best_params=OrderedDict([('C', 1000.0), ('epsilon', 0.001), ('gamma', 0.0001)])
+[kanda_z0_bin_uni | RAW] CV R²: 0.7126 ± 0.1363 | MAE: 0.5590 ± 0.1191 | MSE: 1.0375 ± 0.8333
+[kanda_z0_bin_uni | RAW | holdout_0.2] TEST R²: 0.5568 | TEST MAE: 0.8036 | TEST MSE: 3.3315
+[SVR] Running task: kanda_d_nobin
+[SVR|Bayes] mode=raw | n_iter=40, cv=3
+[SVR|Bayes] best_score=-34.423053
+[SVR|Bayes] best_params=OrderedDict([('C', 44.61023273411235), ('epsilon', 0.001), ('gamma', 0.0011507281399140187)])
+[kanda_d_nobin | RAW] CV R²: 0.6948 ± 0.1151 | MAE: 4.5343 ± 1.6775 | MSE: 47.7300 ± 35.9141
+[kanda_d_nobin | RAW | holdout_0.2] TEST R²: 0.5570 | TEST MAE: 5.2823 | TEST MSE: 71.1226
+[SVR] Running task: kanda_d_bin_uni
+[SVR|Bayes] mode=raw | n_iter=40, cv=3
+[SVR|Bayes] best_score=-34.423053
+[SVR|Bayes] best_params=OrderedDict([('C', 44.61023273411235), ('epsilon', 0.001), ('gamma', 0.0011507281399140187)])
+[kanda_d_bin_uni | RAW] CV R²: 0.6948 ± 0.1151 | MAE: 4.5343 ± 1.6775 | MSE: 47.7300 ± 35.9141
+[kanda_d_bin_uni | RAW | holdout_0.2] TEST R²: 0.5570 | TEST MAE: 5.2823 | TEST MSE: 71.1226
+[Done] SVR 交叉验证完成。

@@ -1,0 +1,85 @@
+[TabPFN] 跳过任务 kanda_z0_no_d_gbr：未配置
+[TabPFN] 跳过任务 kanda_z0_with_d_gbr：未配置
+[TabPFN] 跳过任务 urban_z0_no_d_gbr：未配置
+[TabPFN] 跳过任务 urban_z0_with_d_gbr：未配置
+[Done] TabPFN 交叉验证完成。
+[GBR] Running task: urban_z0_gbr
+[GBR|Bayes] mode=raw | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.295109
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.14411137124811452), ('max_depth', 6), ('max_features', 0.3), ('min_samples_leaf', 4), ('min_samples_split', 2), ('n_estimators', 500), ('subsample', 0.9536540385380597)])
+[urban_z0_gbr | RAW] CV R²: 0.7000 ± 0.1577 | MAE: 0.3283 ± 0.0425 | MSE: 0.2995 ± 0.1262
+[urban_z0_gbr | RAW | holdout_0.2] TEST R²: 0.8917 | TEST MAE: 0.2797 | TEST MSE: 0.1715
+[GBR|Bayes] mode=log | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.045189
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.07460139155550219), ('max_depth', 3), ('max_features', 0.9453409202310765), ('min_samples_leaf', 1), ('min_samples_split', 12), ('n_estimators', 267), ('subsample', 1.0)])
+[urban_z0_gbr | LOG] CV R²: 0.7014 ± 0.1532 | MAE: 0.3173 ± 0.0332 | MSE: 0.3028 ± 0.1524
+[urban_z0_gbr | LOG | holdout_0.2] TEST R²: 0.9064 | TEST MAE: 0.2603 | TEST MSE: 0.1483
+[GBR] Running task: urban_d_gbr
+[GBR|Bayes] mode=raw | n_iter=30, cv=3
+[GBR|Bayes] best_score=-12.321342
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.23971717354644567), ('max_depth', 3), ('max_features', 0.7117415123918943), ('min_samples_leaf', 14), ('min_samples_split', 20), ('n_estimators', 403), ('subsample', 0.7480602306097932)])
+[urban_d_gbr | RAW] CV R²: 0.6772 ± 0.1110 | MAE: 1.9445 ± 0.0771 | MSE: 12.8533 ± 3.3343
+[urban_d_gbr | RAW | holdout_0.2] TEST R²: 0.8513 | TEST MAE: 1.4106 | TEST MSE: 6.3257
+[GBR|Bayes] mode=log | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.144079
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.13759857799524797), ('max_depth', 2), ('max_features', 0.6180584232630497), ('min_samples_leaf', 13), ('min_samples_split', 18), ('n_estimators', 495), ('subsample', 0.6661585379360966)])
+[urban_d_gbr | LOG] CV R²: 0.4526 ± 0.1441 | MAE: 2.6085 ± 0.4021 | MSE: 22.8438 ± 7.0641
+[urban_d_gbr | LOG | holdout_0.2] TEST R²: 0.7845 | TEST MAE: 1.8218 | TEST MSE: 9.1681
+[GBR] Running task: kanda_z0_gbr
+[GBR|Bayes] mode=raw | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.922484
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.13025192054550855), ('max_depth', 6), ('max_features', 1.0), ('min_samples_leaf', 7), ('min_samples_split', 2), ('n_estimators', 50), ('subsample', 0.6527271564656991)])
+[kanda_z0_gbr | RAW] CV R²: 0.7348 ± 0.1531 | MAE: 0.5739 ± 0.1541 | MSE: 0.9110 ± 0.8235
+[kanda_z0_gbr | RAW | holdout_0.2] TEST R²: 0.6980 | TEST MAE: 0.8248 | TEST MSE: 2.2703
+[GBR|Bayes] mode=log | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.054097
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.29999999999999993), ('max_depth', 6), ('max_features', 1.0), ('min_samples_leaf', 11), ('min_samples_split', 15), ('n_estimators', 458), ('subsample', 1.0)])
+[kanda_z0_gbr | LOG] CV R²: 0.6763 ± 0.1175 | MAE: 0.6624 ± 0.1511 | MSE: 1.0875 ± 0.6897
+[kanda_z0_gbr | LOG | holdout_0.2] TEST R²: 0.6709 | TEST MAE: 0.8822 | TEST MSE: 2.4739
+[GBR] Running task: kanda_d_gbr
+[GBR|Bayes] mode=raw | n_iter=30, cv=3
+[GBR|Bayes] best_score=-32.442255
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.018270932908514784), ('max_depth', 5), ('max_features', 0.3), ('min_samples_leaf', 9), ('min_samples_split', 7), ('n_estimators', 452), ('subsample', 0.6134585358819182)])
+[kanda_d_gbr | RAW] CV R²: 0.7610 ± 0.1093 | MAE: 4.1399 ± 0.9043 | MSE: 32.7206 ± 14.8279
+[kanda_d_gbr | RAW | holdout_0.2] TEST R²: 0.6638 | TEST MAE: 4.7846 | TEST MSE: 53.9791
+[GBR|Bayes] mode=log | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.056758
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.03296247425284234), ('max_depth', 2), ('max_features', 1.0), ('min_samples_leaf', 1), ('min_samples_split', 7), ('n_estimators', 500), ('subsample', 0.9989946603525943)])
+[kanda_d_gbr | LOG] CV R²: 0.6997 ± 0.0988 | MAE: 4.2329 ± 0.5571 | MSE: 39.7891 ± 13.6883
+[kanda_d_gbr | LOG | holdout_0.2] TEST R²: 0.6930 | TEST MAE: 4.6029 | TEST MSE: 49.2924
+[Done] GBRM 交叉验证完成。
+[GBR] Running task: kanda_z0_no_d_gbr
+[GBR|Bayes] mode=log | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.054097
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.29999999999999993), ('max_depth', 6), ('max_features', 1.0), ('min_samples_leaf', 11), ('min_samples_split', 15), ('n_estimators', 458), ('subsample', 1.0)])
+[kanda_z0_no_d_gbr | LOG] CV R²: 0.6763 ± 0.1175 | MAE: 0.6624 ± 0.1511 | MSE: 1.0875 ± 0.6897
+[kanda_z0_no_d_gbr | LOG | holdout_0.2] TEST R²: 0.6709 | TEST MAE: 0.8822 | TEST MSE: 2.4739
+[GBR] Running task: kanda_z0_with_d_gbr
+[GBR|Bayes] mode=log | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.057258
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.04766080802833364), ('max_depth', 4), ('max_features', 0.8303599703518705), ('min_samples_leaf', 9), ('min_samples_split', 2), ('n_estimators', 226), ('subsample', 0.9002476500533834)])
+[kanda_z0_with_d_gbr | LOG] CV R²: 0.7391 ± 0.1413 | MAE: 0.5570 ± 0.1273 | MSE: 0.8936 ± 0.7542
+[kanda_z0_with_d_gbr | LOG | holdout_0.2] TEST R²: 0.6839 | TEST MAE: 0.8024 | TEST MSE: 2.3764
+[GBR] Running task: urban_z0_no_d_gbr
+[GBR|Bayes] mode=log | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.045189
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.07460139155550219), ('max_depth', 3), ('max_features', 0.9453409202310765), ('min_samples_leaf', 1), ('min_samples_split', 12), ('n_estimators', 267), ('subsample', 1.0)])
+[urban_z0_no_d_gbr | LOG] CV R²: 0.7014 ± 0.1532 | MAE: 0.3173 ± 0.0332 | MSE: 0.3028 ± 0.1524
+[urban_z0_no_d_gbr | LOG | holdout_0.2] TEST R²: 0.9064 | TEST MAE: 0.2603 | TEST MSE: 0.1483
+[GBR] Running task: urban_z0_with_d_gbr
+[GBR|Bayes] mode=log | n_iter=30, cv=3
+[GBR|Bayes] best_score=-0.028284
+[GBR|Bayes] best_params=OrderedDict([('learning_rate', 0.14406495726006918), ('max_depth', 2), ('max_features', 0.3), ('min_samples_leaf', 1), ('min_samples_split', 20), ('n_estimators', 271), ('subsample', 0.8961395177148082)])
+[urban_z0_with_d_gbr | LOG] CV R²: 0.7600 ± 0.0941 | MAE: 0.2860 ± 0.0254 | MSE: 0.2388 ± 0.0664
+[urban_z0_with_d_gbr | LOG | holdout_0.2] TEST R²: 0.9255 | TEST MAE: 0.2157 | TEST MSE: 0.1180
+[Done] GBRM 交叉验证完成。
+[SVR] 跳过任务 kanda_z0_no_d_gbr：未配置
+[SVR] 跳过任务 kanda_z0_with_d_gbr：未配置
+[SVR] 跳过任务 urban_z0_no_d_gbr：未配置
+[SVR] 跳过任务 urban_z0_with_d_gbr：未配置
+[Done] SVR 交叉验证完成。
+[Ridge] 跳过任务 kanda_z0_no_d_gbr：未配置
+[Ridge] 跳过任务 kanda_z0_with_d_gbr：未配置
+[Ridge] 跳过任务 urban_z0_no_d_gbr：未配置
+[Ridge] 跳过任务 urban_z0_with_d_gbr：未配置
+[Done] Ridge 交叉验证完成。

@@ -1,0 +1,61 @@
+[TabPFN] Running task: kanda_to_urban_d
+[kanda_to_urban_d] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(16), np.int64(1): np.int64(40), np.int64(2): np.int64(26), np.int64(3): np.int64(13), np.int64(4): np.int64(10), np.int64(5): np.int64(5), np.int64(6): np.int64(4), np.int64(7): np.int64(6)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(16), np.int64(1): np.int64(40), np.int64(2): np.int64(26), np.int64(3): np.int64(13), np.int64(4): np.int64(10), np.int64(5): np.int64(5), np.int64(6): np.int64(4), np.int64(7): np.int64(6)}，总样本数由 120 → 120
+[kanda_to_urban_d | RAW] CV R²: 0.7739 ± 0.0554 | MAE: 3.6166 ± 0.9367 | MSE: 33.5747 ± 12.3347
+[kanda_to_urban_d | RAW | explicit_train_test] TEST R²: 0.3561 | TEST MAE: 3.4296 | TEST MSE: 27.0895
+[TabPFN] Running task: kanda_to_urban_z0
+[kanda_to_urban_z0] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(71), np.int64(1): np.int64(33), np.int64(2): np.int64(7), np.int64(3): np.int64(2), np.int64(4): np.int64(4), np.int64(5): np.int64(1), np.int64(6): np.int64(1), np.int64(7): np.int64(1)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(71), np.int64(1): np.int64(33), np.int64(2): np.int64(7), np.int64(3): np.int64(2), np.int64(4): np.int64(4), np.int64(5): np.int64(1), np.int64(6): np.int64(1), np.int64(7): np.int64(1)}，总样本数由 120 → 120
+[kanda_to_urban_z0 | RAW] CV R²: 0.8108 ± 0.0670 | MAE: 0.4585 ± 0.0947 | MSE: 0.6497 ± 0.3077
+[kanda_to_urban_z0 | RAW | explicit_train_test] TEST R²: 0.2824 | TEST MAE: 0.6952 | TEST MSE: 0.8329
+[TabPFN] Running task: urban_to_kanda_d
+[urban_to_kanda_d] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(24), np.int64(1): np.int64(36), np.int64(2): np.int64(169), np.int64(3): np.int64(134), np.int64(4): np.int64(70), np.int64(5): np.int64(23), np.int64(6): np.int64(25), np.int64(7): np.int64(13)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(24), np.int64(1): np.int64(36), np.int64(2): np.int64(150), np.int64(3): np.int64(134), np.int64(4): np.int64(70), np.int64(5): np.int64(23), np.int64(6): np.int64(25), np.int64(7): np.int64(13)}，总样本数由 494 → 475
+[urban_to_kanda_d | RAW] CV R²: 0.6722 ± 0.0817 | MAE: 1.7729 ± 0.3350 | MSE: 14.2514 ± 4.4658
+[urban_to_kanda_d | RAW | explicit_train_test] TEST R²: 0.2204 | TEST MAE: 6.7666 | TEST MSE: 119.9049
+[TabPFN] Running task: urban_to_kanda_z0
+[urban_to_kanda_z0] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(165), np.int64(1): np.int64(210), np.int64(2): np.int64(68), np.int64(3): np.int64(20), np.int64(4): np.int64(10), np.int64(5): np.int64(6), np.int64(6): np.int64(4), np.int64(7): np.int64(11)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(150), np.int64(1): np.int64(150), np.int64(2): np.int64(68), np.int64(3): np.int64(20), np.int64(4): np.int64(10), np.int64(5): np.int64(6), np.int64(6): np.int64(4), np.int64(7): np.int64(11)}，总样本数由 494 → 419
+[urban_to_kanda_z0 | RAW] CV R²: 0.7666 ± 0.1282 | MAE: 0.3011 ± 0.0447 | MSE: 0.2709 ± 0.0929
+[urban_to_kanda_z0 | RAW | explicit_train_test] TEST R²: 0.1725 | TEST MAE: 0.9786 | TEST MSE: 3.5372
+[TabPFN] Running task: urban_and_kanda_d
+[urban_and_kanda_d] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(35), np.int64(1): np.int64(222), np.int64(2): np.int64(153), np.int64(3): np.int64(42), np.int64(4): np.int64(26), np.int64(5): np.int64(4), np.int64(6): np.int64(4), np.int64(7): np.int64(5)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(35), np.int64(1): np.int64(150), np.int64(2): np.int64(150), np.int64(3): np.int64(42), np.int64(4): np.int64(26), np.int64(5): np.int64(4), np.int64(6): np.int64(4), np.int64(7): np.int64(5)}，总样本数由 491 → 416
+[urban_and_kanda_d | RAW] CV R²: 0.7251 ± 0.1517 | MAE: 2.2422 ± 0.2483 | MSE: 19.0112 ± 6.4897
+[urban_and_kanda_d | RAW | holdout_0.2] TEST R²: 0.7913 | TEST MAE: 1.9950 | TEST MSE: 15.5589
+[TabPFN] Running task: urban_and_kanda_z0
+[urban_and_kanda_z0] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(358), np.int64(1): np.int64(94), np.int64(2): np.int64(22), np.int64(3): np.int64(12), np.int64(4): np.int64(2), np.int64(5): np.int64(1), np.int64(6): np.int64(1), np.int64(7): np.int64(1)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(150), np.int64(1): np.int64(94), np.int64(2): np.int64(22), np.int64(3): np.int64(12), np.int64(4): np.int64(2), np.int64(5): np.int64(1), np.int64(6): np.int64(1), np.int64(7): np.int64(1)}，总样本数由 491 → 283
+[urban_and_kanda_z0 | RAW] CV R²: 0.7966 ± 0.0492 | MAE: 0.4269 ± 0.0629 | MSE: 0.5772 ± 0.3556
+[urban_and_kanda_z0 | RAW | holdout_0.2] TEST R²: 0.7609 | TEST MAE: 0.3318 | TEST MSE: 0.4240
+[TabPFN] Running task: urban_only_d
+[urban_only_d] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(21), np.int64(1): np.int64(27), np.int64(2): np.int64(131), np.int64(3): np.int64(108), np.int64(4): np.int64(60), np.int64(5): np.int64(14), np.int64(6): np.int64(21), np.int64(7): np.int64(13)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(21), np.int64(1): np.int64(27), np.int64(2): np.int64(131), np.int64(3): np.int64(108), np.int64(4): np.int64(60), np.int64(5): np.int64(14), np.int64(6): np.int64(21), np.int64(7): np.int64(13)}，总样本数由 395 → 395
+[urban_only_d | RAW] CV R²: 0.7034 ± 0.1248 | MAE: 1.6676 ± 0.4658 | MSE: 13.4278 ± 6.8516
+[urban_only_d | RAW | holdout_0.2] TEST R²: 0.5733 | TEST MAE: 1.7571 | TEST MSE: 14.3015
+[TabPFN] Running task: urban_only_z0
+[urban_only_z0] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(132), np.int64(1): np.int64(173), np.int64(2): np.int64(53), np.int64(3): np.int64(13), np.int64(4): np.int64(8), np.int64(5): np.int64(4), np.int64(6): np.int64(3), np.int64(7): np.int64(9)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(132), np.int64(1): np.int64(150), np.int64(2): np.int64(53), np.int64(3): np.int64(13), np.int64(4): np.int64(8), np.int64(5): np.int64(4), np.int64(6): np.int64(3), np.int64(7): np.int64(9)}，总样本数由 395 → 372
+[urban_only_z0 | RAW] CV R²: 0.6418 ± 0.2420 | MAE: 0.3103 ± 0.0399 | MSE: 0.3477 ± 0.2160
+[urban_only_z0 | RAW | holdout_0.2] TEST R²: 0.8100 | TEST MAE: 0.2807 | TEST MSE: 0.2435
+[TabPFN] Running task: kanda_only_d
+[kanda_only_d] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(15), np.int64(1): np.int64(32), np.int64(2): np.int64(23), np.int64(3): np.int64(10), np.int64(4): np.int64(5), np.int64(5): np.int64(2), np.int64(6): np.int64(4), np.int64(7): np.int64(5)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(15), np.int64(1): np.int64(32), np.int64(2): np.int64(23), np.int64(3): np.int64(10), np.int64(4): np.int64(5), np.int64(5): np.int64(2), np.int64(6): np.int64(4), np.int64(7): np.int64(5)}，总样本数由 96 → 96
+[kanda_only_d | RAW] CV R²: 0.7836 ± 0.0896 | MAE: 3.4661 ± 0.4265 | MSE: 28.5064 ± 7.6970
+[kanda_only_d | RAW | holdout_0.2] TEST R²: 0.4731 | TEST MAE: 5.4230 | TEST MSE: 86.5552
+[TabPFN] Running task: kanda_only_z0
+[kanda_only_z0] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(44), np.int64(1): np.int64(27), np.int64(2): np.int64(15), np.int64(3): np.int64(4), np.int64(4): np.int64(2), np.int64(5): np.int64(1), np.int64(6): np.int64(2), np.int64(7): np.int64(1)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(44), np.int64(1): np.int64(27), np.int64(2): np.int64(15), np.int64(3): np.int64(4), np.int64(4): np.int64(2), np.int64(5): np.int64(1), np.int64(6): np.int64(2), np.int64(7): np.int64(1)}，总样本数由 96 → 96
+[kanda_only_z0 | RAW] CV R²: 0.7968 ± 0.1019 | MAE: 0.3934 ± 0.0923 | MSE: 0.3982 ± 0.1727
+[kanda_only_z0 | RAW | holdout_0.2] TEST R²: 0.8065 | TEST MAE: 0.8419 | TEST MSE: 2.0708
+[Done] TabPFN 交叉验证完成。

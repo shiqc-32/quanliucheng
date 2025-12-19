@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 62, in <module>
+    main()
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 39, in main
+    df_map, stats = build_case_name_mapping(
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/case_name_mapping.py", line 102, in build_case_name_mapping
+    df_meta = pd.read_csv(metadata_csv_path, encoding=meta_encoding, sep=sep)
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/pandas/io/common.py", line 723, in get_handle
+    codecs.lookup(encoding)
+LookupError: unknown encoding: gkb

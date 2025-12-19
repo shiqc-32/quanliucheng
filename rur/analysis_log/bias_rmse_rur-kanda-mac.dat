@@ -1,0 +1,4 @@
+    scheme    bias_d   bias_z0    rmse_d   rmse_z0
+       Mac    -0.997    -0.312     1.060     0.737
+     Kanda     0.003     0.059     0.289     0.374
+       RUR    -0.143     0.034     0.436     0.653

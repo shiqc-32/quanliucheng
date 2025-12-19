@@ -1,0 +1,19 @@
+[progress] meta matched so far: 50 (unique: 50)
+[progress] meta matched so far: 100 (unique: 100)
+[progress] meta matched so far: 150 (unique: 150)
+[progress] meta matched so far: 200 (unique: 200)
+[progress] meta matched so far: 250 (unique: 250)
+[progress] meta matched so far: 300 (unique: 300)
+[progress] meta matched so far: 350 (unique: 350)
+[progress] meta matched so far: 400 (unique: 400)
+[progress] meta matched so far: 450 (unique: 450)
+[progress] meta matched so far: 500 (unique: 500)
+
+=== 配对统计 ===
+flow_total: 538
+meta_matched: 538
+meta_unmatched: 0
+folder_matched: 536
+folder_unmatched: 2
+idealized_rows: 224
+realistic_rows: 314

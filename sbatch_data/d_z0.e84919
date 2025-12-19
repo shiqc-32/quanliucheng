@@ -1,0 +1,70 @@
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/regressor.py:563: UserWarning: Running on CPU with more than 200 samples may be slow.
+Consider using a GPU or the tabpfn-client API: https://github.com/PriorLabs/tabpfn-client
+  check_cpu_warning(
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/regressor.py:563: UserWarning: Running on CPU with more than 200 samples may be slow.
+Consider using a GPU or the tabpfn-client API: https://github.com/PriorLabs/tabpfn-client
+  check_cpu_warning(
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/regressor.py:563: UserWarning: Running on CPU with more than 200 samples may be slow.
+Consider using a GPU or the tabpfn-client API: https://github.com/PriorLabs/tabpfn-client
+  check_cpu_warning(
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/preprocessors/safe_power_transformer.py:152: RuntimeWarning: overflow encountered in cast
+  x_inv[pos] = np.expm1(np.log(x[pos] * lmbda + 1) / lmbda)
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/preprocessors/safe_power_transformer.py:152: RuntimeWarning: overflow encountered in cast
+  x_inv[pos] = np.expm1(np.log(x[pos] * lmbda + 1) / lmbda)
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/preprocessors/safe_power_transformer.py:152: RuntimeWarning: overflow encountered in cast
+  x_inv[pos] = np.expm1(np.log(x[pos] * lmbda + 1) / lmbda)
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/preprocessors/safe_power_transformer.py:152: RuntimeWarning: overflow encountered in cast
+  x_inv[pos] = np.expm1(np.log(x[pos] * lmbda + 1) / lmbda)
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/regressor.py:563: UserWarning: Running on CPU with more than 200 samples may be slow.
+Consider using a GPU or the tabpfn-client API: https://github.com/PriorLabs/tabpfn-client
+  check_cpu_warning(
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/regressor.py:563: UserWarning: Running on CPU with more than 200 samples may be slow.
+Consider using a GPU or the tabpfn-client API: https://github.com/PriorLabs/tabpfn-client
+  check_cpu_warning(
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/regressor.py:563: UserWarning: Running on CPU with more than 200 samples may be slow.
+Consider using a GPU or the tabpfn-client API: https://github.com/PriorLabs/tabpfn-client
+  check_cpu_warning(
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/preprocessors/safe_power_transformer.py:152: RuntimeWarning: overflow encountered in cast
+  x_inv[pos] = np.expm1(np.log(x[pos] * lmbda + 1) / lmbda)
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/preprocessors/safe_power_transformer.py:152: RuntimeWarning: overflow encountered in cast
+  x_inv[pos] = np.expm1(np.log(x[pos] * lmbda + 1) / lmbda)
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/preprocessors/safe_power_transformer.py:152: RuntimeWarning: overflow encountered in cast
+  x_inv[pos] = np.expm1(np.log(x[pos] * lmbda + 1) / lmbda)
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/preprocessors/safe_power_transformer.py:152: RuntimeWarning: overflow encountered in cast
+  x_inv[pos] = np.expm1(np.log(x[pos] * lmbda + 1) / lmbda)
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/regressor.py:563: UserWarning: Running on CPU with more than 200 samples may be slow.
+Consider using a GPU or the tabpfn-client API: https://github.com/PriorLabs/tabpfn-client
+  check_cpu_warning(
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/regressor.py:563: UserWarning: Running on CPU with more than 200 samples may be slow.
+Consider using a GPU or the tabpfn-client API: https://github.com/PriorLabs/tabpfn-client
+  check_cpu_warning(
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/regressor.py:563: UserWarning: Running on CPU with more than 200 samples may be slow.
+Consider using a GPU or the tabpfn-client API: https://github.com/PriorLabs/tabpfn-client
+  check_cpu_warning(
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/regressor.py:563: UserWarning: Running on CPU with more than 200 samples may be slow.
+Consider using a GPU or the tabpfn-client API: https://github.com/PriorLabs/tabpfn-client
+  check_cpu_warning(
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/regressor.py:563: UserWarning: Running on CPU with more than 200 samples may be slow.
+Consider using a GPU or the tabpfn-client API: https://github.com/PriorLabs/tabpfn-client
+  check_cpu_warning(
+/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/regressor.py:563: UserWarning: Running on CPU with more than 200 samples may be slow.
+Consider using a GPU or the tabpfn-client API: https://github.com/PriorLabs/tabpfn-client
+  check_cpu_warning(
+Traceback (most recent call last):
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 246, in <module>
+    main()
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 163, in main
+    # run_rf_tasks_from_cfg(
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/rf_runner.py", line 649, in run_rf_tasks_from_cfg
+    run_single_rf_task(cfg, tkey, task_cfg, sep, enc, out_dir, seed)
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/rf_runner.py", line 595, in run_single_rf_task
+    cv_pack = run_kfold_cv_rf(X_tr, y_tr, kf_num, task_cfg, bool(log_mode), seed)
+  File "/stu02/shiqc24/d_z0_ML/quanliucheng/rf_runner.py", line 238, in run_kfold_cv_rf
+    model.fit(Xtr, y_tr_fold)
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/sklearn/base.py", line 1382, in wrapper
+    estimator._validate_params()
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/sklearn/base.py", line 436, in _validate_params
+    validate_parameter_constraints(
+  File "/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/sklearn/utils/_param_validation.py", line 98, in validate_parameter_constraints
+    raise InvalidParameterError(
+sklearn.utils._param_validation.InvalidParameterError: The 'max_features' parameter of RandomForestRegressor must be an int in the range [1, inf), a float in the range (0.0, 1.0], a str among {'sqrt', 'log2'} or None. Got 'auto' instead.

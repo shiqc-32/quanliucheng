@@ -1,0 +1,13 @@
+[TabPFN] Running task: kanda_z0_no_d_tabpfn
+[kanda_z0_no_d_tabpfn] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(52), np.int64(1): np.int64(26), np.int64(2): np.int64(10), np.int64(3): np.int64(1), np.int64(4): np.int64(2), np.int64(5): np.int64(3), np.int64(6): np.int64(1), np.int64(7): np.int64(1)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(52), np.int64(1): np.int64(26), np.int64(2): np.int64(10), np.int64(3): np.int64(1), np.int64(4): np.int64(2), np.int64(5): np.int64(3), np.int64(6): np.int64(1), np.int64(7): np.int64(1)}，总样本数由 96 → 96
+[kanda_z0_no_d_tabpfn | RAW] CV R²: 0.8252 ± 0.0539 | MAE: 0.4564 ± 0.0893 | MSE: 0.6169 ± 0.4395
+[kanda_z0_no_d_tabpfn | RAW | holdout_0.2] TEST R²: 0.9260 | TEST MAE: 0.4678 | TEST MSE: 0.5562
+[TabPFN] Running task: kanda_z0_with_d_tabpfn
+[kanda_z0_with_d_tabpfn] 启用分箱训练：n_bins=8, mode=undersample, strategy=uniform, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(52), np.int64(1): np.int64(26), np.int64(2): np.int64(10), np.int64(3): np.int64(1), np.int64(4): np.int64(2), np.int64(5): np.int64(3), np.int64(6): np.int64(1), np.int64(7): np.int64(1)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(52), np.int64(1): np.int64(26), np.int64(2): np.int64(10), np.int64(3): np.int64(1), np.int64(4): np.int64(2), np.int64(5): np.int64(3), np.int64(6): np.int64(1), np.int64(7): np.int64(1)}，总样本数由 96 → 96
+[kanda_z0_with_d_tabpfn | RAW] CV R²: 0.8512 ± 0.0470 | MAE: 0.4230 ± 0.0729 | MSE: 0.5459 ± 0.4104
+[kanda_z0_with_d_tabpfn | RAW | holdout_0.2] TEST R²: 0.9151 | TEST MAE: 0.4537 | TEST MSE: 0.6384
+[Done] TabPFN 交叉验证完成。

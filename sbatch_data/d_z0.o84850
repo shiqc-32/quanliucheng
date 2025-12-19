@@ -1,0 +1,15 @@
+[TabPFN] Running task: urban_z0_bin
+[urban_z0_bin] 启用分箱训练：n_bins=5, mode=undersample, strategy=quantile, max_per_bin=150
+[Binning] 原始各 bin 样本数：{np.int64(0): np.int64(79), np.int64(1): np.int64(79), np.int64(2): np.int64(79), np.int64(3): np.int64(79), np.int64(4): np.int64(79)}
+[Binning] 重采样后各 bin 样本数：{np.int64(0): np.int64(79), np.int64(1): np.int64(79), np.int64(2): np.int64(79), np.int64(3): np.int64(79), np.int64(4): np.int64(79)}，总样本数由 395 → 395
+[urban_z0_bin | RAW] CV R²: 0.7066 ± 0.2050 | MAE: 0.2931 ± 0.0276 | MSE: 0.2499 ± 0.0690
+[urban_z0_bin | RAW | holdout_0.2] TEST R²: 0.8920 | TEST MAE: 0.2602 | TEST MSE: 0.1710
+[urban_z0_bin | LOG] CV R²: 0.7032 ± 0.2166 | MAE: 0.2907 ± 0.0288 | MSE: 0.2522 ± 0.0865
+[urban_z0_bin | LOG | holdout_0.2] TEST R²: 0.9097 | TEST MAE: 0.2459 | TEST MSE: 0.1430
+[TabPFN] Running task: urban_z0_nobin
+[urban_z0_nobin | RAW] CV R²: 0.7259 ± 0.1270 | MAE: 0.2967 ± 0.0340 | MSE: 0.2706 ± 0.1133
+[urban_z0_nobin | RAW | holdout_0.2] TEST R²: 0.8948 | TEST MAE: 0.2583 | TEST MSE: 0.1666
+[urban_z0_nobin | LOG] CV R²: 0.7151 ± 0.1502 | MAE: 0.2967 ± 0.0321 | MSE: 0.2853 ± 0.1561
+[urban_z0_nobin | LOG | holdout_0.2] TEST R²: 0.9104 | TEST MAE: 0.2451 | TEST MSE: 0.1420
+[Done] TabPFN 交叉验证完成。
+[Done] TabPFN 交叉验证完成。
