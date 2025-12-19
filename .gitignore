@@ -1,0 +1,5 @@
+# ignore large data folder
+/data/
+/output/
+/rur/data_in/
+/rur/data_out/
