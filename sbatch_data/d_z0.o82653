@@ -1,4 +1,0 @@
-[RF] Running task: task_rf_z0
-[task_rf_z0 | RAW] CV R²: 0.6504 ± 0.2438 | MAE: 0.4931 ± 0.0578 | MSE: 0.7262 ± 0.3230
-[task_rf_z0 | RAW | holdout_0.2] TEST R²: 0.6379 | TEST MAE: 0.4987 | TEST MSE: 0.7364
-[Done] 随机森林：交叉验证与测试评估完成。

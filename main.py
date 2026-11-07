@@ -3,29 +3,84 @@
 import argparse
 import yaml
 import pandas as pd
+import os
+import time
+import threading
+import psutil
 
 # 你的已有模块
-from rp_stats import process_all_topos                              # 如不需要可注释
-from case_name_mapping import build_case_name_mapping
+# from rp_stats import process_all_topos                              # 如不需要可注释
+from rp_batch import run_rp_profile_pipeline                        # rp计算模块
+from case_name_mapping import run_case_name_mapping
 from merge_rp_with_mapping import build_model_input_from_cfg        # 新增：合并模块
 from select_and_rename import select_and_rename_from_cfg            # 数据整合与重命名模块
+from rp_inequality_check import run_rp_inequality_pipeline          # rp不等式检查模块
 from clean_zscore import clean_with_zscore_from_cfg                 # 新增：数据清洗模块
 from dist_checker import run_dist_check_from_cfg                    # 分布检查模块
 from phys_schemes import run_mac_kanda_from_cfg                     # 物理方案模块
 from d_z0_plot import run_d_z0_plot_from_cfg                        # d_z0 可视化模块
 from phys_input_builder import run_phys_input_from_cfg              # 物理方案数据制备模块
 import urban_model as um                             # rur方案失效检查
+from plot_rec import resolve_cfg_refs, plot_two_datasets
+from pipeline_kanda import Kanda_method_to_Urban
+from urban_morphology_summary import urban_morphology_summary
+from beijing_morphology_summary import nested_square_morphology
 
-# TabPFN 模块（如需要）
-from tabpfn_cv_runner import run_tabpfn_tasks_from_cfg
-# RF 模块（如需要）
-from rf_runner import run_rf_tasks_from_cfg
-# GBRM 模块（如需要）
-from gbr_cv_runner import run_gbr_tasks_from_cfg
-# SVR 模块（如需要）
-from svr_cv_runner import run_svr_tasks_from_cfg
-# # Ridge 模块（如需要）
-# from ridge_cv_runner import run_ridge_tasks_from_cfg
+# # TabPFN 模块（如需要）
+# from tabpfn_cv_runner import run_tabpfn_tasks_from_cfg            # 双输入版本
+# from tabpfn_runner_simple import run_tabpfn_tasks_from_cfg          # urban计算新参数简化版
+# from tabpfn_runner_simple_predict import run_tabpfn_tasks_from_cfg          # 预测北京数据版
+from tabpfn_runner_simple_cv_fixed import run_tabpfn_tasks_from_cfg          # 检验分箱前后顺序版
+# # RF 模块（如需要）
+# from rf_runner import run_rf_tasks_from_cfg
+# # GBRM 模块（如需要）s
+# from gbr_cv_runner import run_gbr_tasks_from_cfg
+# # SVR 模块（如需要）
+# from svr_cv_runner import run_svr_tasks_from_cfg
+# # # Ridge 模块（如需要）
+# # from ridge_cv_runner import run_ridge_tasks_from_cfg
+
+def monitor_cpu(interval=10):
+    parent = psutil.Process(os.getpid())
+
+    # 先初始化一次，避免第一次读数不准
+    parent.cpu_percent(interval=None)
+    for c in parent.children(recursive=True):
+        try:
+            c.cpu_percent(interval=None)
+        except Exception:
+            pass
+
+    while True:
+        time.sleep(1)
+
+        total_cpu = 0.0
+        total_mem = 0.0
+
+        # 父进程
+        try:
+            total_cpu += parent.cpu_percent(interval=None)
+            total_mem += parent.memory_info().rss / 1024**3
+        except Exception:
+            pass
+
+        # 子进程
+        children = parent.children(recursive=True)
+        for c in children:
+            try:
+                total_cpu += c.cpu_percent(interval=None)
+                total_mem += c.memory_info().rss / 1024**3
+            except Exception:
+                pass
+
+        print(
+            f"[MONITOR] parent_pid={parent.pid}, children={len(children)}, "
+            f"total_cpu%={total_cpu:.1f}, total_mem={total_mem:.2f} GB, "
+            f"approx_cores={total_cpu/100:.2f}",
+            flush=True
+        )
+
+        time.sleep(max(interval - 1, 0))
 
 def main():
     # ── CLI ───────────────────────────────────────────────────────────
@@ -46,7 +101,7 @@ def main():
     cols   = cfg["columns"]
     params = cfg.get("params", {})
 
-    # # ── rp_ave/std 计算/读取逐层风速（一次性，已经算完）────────────────────────
+    # # ──[err] rp_ave/std 计算/读取逐层风速（一次性，已经算完）────────────────────────
     # # 生成的文件：d_z0_ML/quanliucheng/output/translation_data/rp_ave_std_1m_ideal.xlsx
     # # 生成的文件：d_z0_ML/quanliucheng/output/translation_data/rp_ave_std_1m_real.xlsx
     # process_all_topos(
@@ -62,31 +117,16 @@ def main():
     #     step=compute.get("step", 1.0),
     # )
 
+    # # ── rp_ave/std 计算 ────────────────────────
+    # run_rp_profile_pipeline(cfg)
+    # print("\n[Done] rp_profile_pipeline 完成。")
+    # # ────────────────────────────────────────────────
+
+
     # # ── 案例名称对应：flow ↔ metadata ↔ 文件夹（ideal/real）（一次性，已经算完） ─────────────
-    # # 生成的文件：d_z0_ML/quanliucheng/output/translation_data/case_name_mapping.csv
-    # df_map, stats = build_case_name_mapping(
-    #     flow_csv_path=paths["flow_csv"],
-    #     metadata_csv_path=paths["meta_csv"],
-    #     flow_case_col=cols["flow_case_col"],
-    #     meta_case_col=cols["meta_case_col"],
-    #     meta_config_col=cols["meta_config_col"],
-    #     idealized_root=paths["ideal_root"],
-    #     realistic_root=paths["real_root"],
-    #     cutoff=float(params.get("cutoff", 0.72)),
-    #     flow_encoding=params.get("flow_encoding"),
-    #     meta_encoding=params.get("meta_encoding"),
-    #     sep=params.get("sep", ","),
-    # )
-
-    # # 打印配对统计
-    # print("\n=== 配对统计 ===")
-    # for k, v in stats.items():
-    #     print(f"{k}: {v}")
-
-    # # 保存映射表（注意编码：优先用 YAML 的 map_encoding；默认 utf-8-sig）
-    # map_encoding = params.get("map_encoding", "utf-8-sig")   # 或设置为 "gbk"
-    # df_map.to_csv(paths["cnm_path"], index=False, encoding=map_encoding)
-    # print("\n已保存映射表到：", paths["cnm_path"])
+    # run_case_name_mapping(cfg)
+    # print("[Done] 案例名称映射完成。")
+    # # ────────────────────────────────────────────────
 
     # # ── 合并：rp(ID, rp_ave, rp_std) + metadata + flowdata （一次性，已经算完）────────────
     # # 直接使用内存中的 df_map，更稳也避免再次读写
@@ -113,12 +153,17 @@ def main():
     # )
     # print(f"[Done] 选择并改名（kanda）已输出：{paths['kanda_input_csv']}")
 
+    # # ── rp 不等式检查（一次性，已经算完）────────────────────────────
+    # run_rp_inequality_pipeline(cfg)
+    # print("\n[Done] rp 不等式检查完成。")
+    # # ────────────────────────────────────────────────
+
     # # ── Z-score 清洗 +删除负值（一次性，已经算完）──────────────────────────────────────────────────────────────────────
     # # 1) urban：model_input_csv → urban_zclean_output
     # clean_with_zscore_from_cfg(
     #     cfg,
-    #     in_csv_path=paths["urban_model_input"],
-    #     out_csv_path=paths["urban_zclean_output"],
+    #     in_csv_path=paths["urban_recal_results"],        # 注意这里是 urban_recal_results（已经经过kanda方法重算的结果），不是之前的 model_input_csv
+    #     out_csv_path=paths["urban_recal_results_z"],      # 输出到 urban_recal_results_z，保留重算结果的同时得到清洗后的版本
     # )
 
     # # 2) kanda：kanda_path → kanda_zclean_output
@@ -128,7 +173,7 @@ def main():
     #     out_csv_path=paths["kanda_zclean_output"],
     # )
 
-    # print("\n[Done] 两份数据的 Z-score 清洗完成。")
+    # print("\n[Done] 数据的 Z-score 清洗完成。")
 
     # # ── 分布检查（一次性）──────────────────────────────────────────────────────────────────────
     # run_dist_check_from_cfg(cfg)
@@ -154,69 +199,18 @@ def main():
     # print("[Done] TabPFN 交叉验证完成。")
     # # ──────────────────────────────────────
 
-    # # ── 随机森林 ───────────────────────────
-    # run_rf_tasks_from_cfg(
-    #     cfg,
-    #     task_keys=[
-    #         "urban_z0_nobin",
-    #         "urban_z0_bin_uni",
-    #         "urban_d_nobin",
-    #         "urban_d_bin_uni",
-    #         "kanda_z0_nobin",
-    #         "kanda_z0_bin_uni",
-    #         "kanda_d_nobin",
-    #         "kanda_d_bin_uni",
-    #     ],
-    # )
-    # print("[Done] 随机森林交叉验证完成。")  
-    # # ──────────────────────────────────────
 
-    # # ── GBRM ───────────────────────────
-    # run_gbr_tasks_from_cfg(
-    #     cfg,
-    #     task_keys=[
-    #         "urban_z0_nobin",
-    #         "urban_z0_bin_uni",
-    #         "urban_d_nobin",
-    #         "urban_d_bin_uni",
-    #         "kanda_z0_nobin",
-    #         "kanda_z0_bin_uni",
-    #         "kanda_d_nobin",
-    #         "kanda_d_bin_uni",
-    #     ],
-    # )
-    # print("[Done] GBRM 交叉验证完成。")
-    # # ──────────────────────────────────────
-
-    # # ── SVR ───────────────────────────
-    # run_svr_tasks_from_cfg(
-    #     cfg,
-    #     task_keys=[
-    #         "urban_z0_nobin",
-    #         "urban_z0_bin_uni",
-    #         "urban_d_nobin",
-    #         "urban_d_bin_uni",
-    #         "kanda_z0_nobin",
-    #         "kanda_z0_bin_uni",
-    #         "kanda_d_nobin",
-    #         "kanda_d_bin_uni",
-    #     ],
-    # )
-    # print("[Done] SVR 交叉验证完成。")
-    # # ──────────────────────────────────────
 
     ####################################################
     # 加入d和不加入d预测的结果差别
     ####################################################
 
-    # # ── TabPFN ───────────────────────────
+    # # # ── TabPFN ───────────────────────────
     # run_tabpfn_tasks_from_cfg(
     #     cfg,
     #     task_keys=[
-    #         "kanda_z0_no_d_tabpfn",
-    #         "kanda_z0_with_d_tabpfn",
-    #         "urban_z0_no_d_tabpfn",
-    #         "urban_z0_with_d_tabpfn",
+    #         "k+u_z0_no_d_tabpfn",
+    #         "urban_and_kanda_z0",
     #     ],
     # )
     # print("[Done] TabPFN 交叉验证完成。")
@@ -266,9 +260,9 @@ def main():
     # print("\n[Done] d_z0 可视化模块完成。")
     # # ────────────────────────────────────────────────
 
-    # ───── 物理方案数据生成 ────────────────────────────
-    run_phys_input_from_cfg(cfg)
-    # ────────────────────────────────────────────────
+    # # # ───── 物理方案数据生成 ────────────────────────────
+    # run_phys_input_from_cfg(cfg)
+    # # # ────────────────────────────────────────────────
 
     # ───── rur方案失效检查 ────────────────────────────
     # um.run_rur_from_cfg(cfg)        # 对所有站点做 z0 NaN 检查
@@ -278,16 +272,80 @@ def main():
     # run_tabpfn_tasks_from_cfg(
     #     cfg,
     #     task_keys=[
-    #         "kanda_to_urban_d",
-    #         "kanda_to_urban_z0",
-    #         "urban_to_kanda_d",
-    #         "urban_to_kanda_z0",
-    #         "urban_and_kanda_d",
-    #         "urban_and_kanda_z0",
+    #         # "kanda_to_urban_d",
+    #         # "kanda_to_urban_z0",
+    #         # "urban_to_kanda_d",
+    #         # "urban_to_kanda_z0",
+    #         "urban_and_kanda_d_test",
+    #         "urban_and_kanda_z0_test",
     #     ],
     # )
     # print("[Done] TabPFN 交叉验证完成。")
     # # ──────────────────────────────────────
+
+    # # ── 可视化两套数据对比结果 ───────────────────────────
+    # cfg = resolve_cfg_refs(cfg)
+    # plot_two_datasets(cfg)
+    # print("[Done] 可视化两套数据对比结果完成。")
+    # # ──────────────────────────────────────
+
+    # # ── Kanda方法验证Urban数据合理性（一次性）────────────────────────────
+    # Kanda_method_to_Urban(cfg)
+    # print("[Done] Kanda方法验证Urban数据合理性完成。")
+    # # ────────────────────────────────────────────────
+
+    # # ── urbanTALES城市形态计算（一次性）────────────────────────────
+    # t = threading.Thread(target=monitor_cpu, daemon=True)
+    # t.start()
+    # print("\n正在进行城市形态计算（urbanTALES）...", flush=True)
+    # urban_morphology_summary(cfg)
+    # print("[Done] 城市形态计算完成。")
+
+    # # ────────────────────────────────────────────────
+
+    # # ── 北京大塔城市形态计算（一次性）────────────────────────────
+    # result = nested_square_morphology(cfg)
+
+    # print("\n===== Nested-square morphology results =====")
+    # print(result.to_string(index=False))
+
+    # # ────────────────────────────────────────────────
+
+    # # ————————————物理约束（残差版数据清洗）————————————————————————————
+    # # 2) kanda_err：kanda_path → kanda_zclean_output
+    # clean_with_zscore_from_cfg(
+    #     cfg,
+    #     in_csv_path=paths["rur_kanda_csv"],
+    #     out_csv_path=paths["rur_kanda_zclean_csv"],
+    # )
+
+    # print("\n[Done] 数据的 Z-score 清洗完成。")
+
+    # ── urban新参数 ───────────────────────────
+    run_tabpfn_tasks_from_cfg(
+        cfg,
+        task_keys=[
+        # "kanda_z0_err",
+        # "kanda_d_err",
+        # "kanda_recur_2y_d",
+        # "kanda_recur_2y_z0",
+        # "kanda_RUR_d_compare",
+        # "kanda_RUR_z0_compare",
+        # "beijing_new_para_d",
+        # "beijing_new_para_z0",
+        # "urban_z0_to_BJ",
+        # "urban_d_to_BJ",
+        # "kanda_z0_to_BJ",
+        # "kanda_d_to_BJ",
+        # "k+u_z0_to_BJ",
+        "k+u_d_to_BJ",
+        # "urban_z0_to_BJ_with_d",
+        # "kanda_z0_to_BJ_with_d",
+        # "k+u_z0_to_BJ_with_d",
+        ],
+    )
+    print("[Done]urban新参数计算重要性结果完成。")
+    # ──────────────────────────────────────
 
 if __name__ == "__main__":
     main()

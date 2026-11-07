@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 55, in <module>
-    main()
-  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 28, in main
-    with open("configs/case_mapping.yaml", "r", encoding="utf-8") as f:
-FileNotFoundError: [Errno 2] No such file or directory: 'configs/case_mapping.yaml'

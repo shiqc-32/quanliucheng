@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 54, in <module>
-    main()
-  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 37, in main
-    idealized_root=paths["idealized_root"],
-KeyError: 'idealized_root'

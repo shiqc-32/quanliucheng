@@ -1,3 +1,0 @@
-=== 配置参数 ===
-路径参数： {'output_excel': '/stu02/shiqc24/d_z0_ML/quanliucheng/output/translation_data/rp_ave_std_1m_ideal.xlsx', 'flow_csv': '/stu02/shiqc24/d_z0_ML/quanliucheng/data/urbanTALES/UrbanTALES-flowdata.csv', 'meta_csv': '/stu02/shiqc24/d_z0_ML/quanliucheng/data/urbanTALES/metadata.csv', 'ideal_root': '/stu02/shiqc24/d_z0_ML/quanliucheng/data/urbanTALES/urbanTALES_idealized', 'real_root': '/stu02/shiqc24/d_z0_ML/quanliucheng/data/urbanTALES/urbanTALES_realistic', 'output_csv': '/stu02/shiqc24/d_z0_ML/quanliucheng/output/translation_data/case_name_mapping.csv'} 计算参数： {'method': 'step1m', 'step': 1.0} 列名参数： {'flow_case_col': 'NameE', 'meta_case_col': 'NameE', 'meta_config_col': 'Config'} 模糊匹配阈值 cutoff： 0.72 编码参数： us-ascii unknown-8bit
-us-ascii unknown-8bit

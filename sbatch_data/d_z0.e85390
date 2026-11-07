@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 277, in <module>
-    main()
-  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 273, in main
-    run_z0_nan_check_from_cfg(cfg)    # 对所有站点做 z0 NaN 检查
-  File "/stu02/shiqc24/d_z0_ML/quanliucheng/rur_nan_debug.py", line 332, in run_z0_nan_check_from_cfg
-    rp_path = _resolve_path(cfg, sec["rp_profiles_csv"])
-NameError: name '_resolve_path' is not defined

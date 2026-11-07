@@ -1,4 +1,0 @@
-/home/shiqc24/d_z0_ML_quanliucheng/lib/python3.9/site-packages/tabpfn/regressor.py:563: UserWarning: Running on CPU with more than 200 samples may be slow.
-Consider using a GPU or the tabpfn-client API: https://github.com/PriorLabs/tabpfn-client
-  check_cpu_warning(
-slurmstepd-tms03: error: *** JOB 84927 ON tms03 CANCELLED AT 2025-11-25T20:19:46 ***

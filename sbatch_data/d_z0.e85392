@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 277, in <module>
-    main()
-  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 273, in main
-    run_z0_nan_check_from_cfg(cfg)    # 对所有站点做 z0 NaN 检查
-  File "/stu02/shiqc24/d_z0_ML/quanliucheng/rur_nan_debug.py", line 406, in run_z0_nan_check_from_cfg
-    if info["z0_is_nan"]:
-KeyError: 'z0_is_nan'

@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 93, in <module>
-    main()
-  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 76, in main
-    clean_with_zscore_from_cfg(
-  File "/stu02/shiqc24/d_z0_ML/quanliucheng/clean_zscore.py", line 54, in clean_with_zscore_from_cfg
-    raise ValueError("clean.columns 必须是非空列表（请在 YAML 中配置需要计算 Z-score 的列）。")
-ValueError: clean.columns 必须是非空列表（请在 YAML 中配置需要计算 Z-score 的列）。

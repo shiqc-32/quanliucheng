@@ -1,3 +1,0 @@
-[dist_check] 读取 CSV: /stu02/shiqc24/d_z0_ML/quanliucheng/output/translation_data/urban_model_input.csv
-[dist_check] fg_0: stats -> /stu02/shiqc24/d_z0_ML/quanliucheng/output/translation_data/dist_check_report/stats_summary_fg_0.csv
-[dist_check] fg_0: figs -> /stu02/shiqc24/d_z0_ML/quanliucheng/output/translation_data/dist_check_report/figs_fg_0

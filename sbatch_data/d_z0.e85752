@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 13, in <module>
-    from dist_checker import run_dist_check_from_cfg                    # 分布检查模块
-ImportError: cannot import name 'run_dist_check_from_cfg' from 'dist_checker' (/stu02/shiqc24/d_z0_ML/quanliucheng/dist_checker.py)

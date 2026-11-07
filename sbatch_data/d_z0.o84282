@@ -1,3 +1,0 @@
-[TabPFN] Running task: urban_z0
-[urban_z0 | RAW] CV R²: 0.7205 ± 0.1448 | MAE: 0.3583 ± 0.0428 | MSE: 0.6165 ± 0.2596
-[urban_z0 | RAW | holdout_0.2] TEST R²: 0.8398 | TEST MAE: 0.3324 | TEST MSE: 0.3258

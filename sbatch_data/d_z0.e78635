@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 51, in <module>
-    main()
-  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 31, in main
-    df_map, stats = build_case_name_mapping(
-  File "/stu02/shiqc24/d_z0_ML/quanliucheng/case_name_mapping.py", line 99, in build_case_name_mapping
-    df_flow = pd.read_csv(flow_csv_path, encoding="utf-8", errors="strict")  # 保持不变/或同样按B处理
-TypeError: read_csv() got an unexpected keyword argument 'errors'

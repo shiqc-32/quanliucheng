@@ -1,5 +1,0 @@
-[phys_input] 读取源数据: /stu02/shiqc24/d_z0_ML/quanliucheng/output/translation_data/model_input_data.csv
-[phys_input] 警告：找不到 FG 列 'fg'，跳过 FG 筛选
-[phys_input] 警告：找不到 X 列 'x'，跳过 X 筛选
-[phys_input] 警告：找不到 Y 列 'y'，跳过 Y 筛选
-[phys_input] 筛选后样本数: 538

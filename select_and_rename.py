@@ -88,7 +88,7 @@ def select_and_rename_from_cfg(
 ) -> None:
     """
     读取 in_csv_path → 按任务 columns 选择 → 追加 rp_*/U_* 列 → rename_map 改名 →
-    数据规范（_standardize_data）→ 写出 out_csv_path。
+    数据规范（_standardize_data）→ 新增 ID 列（与 case_name 一一对应）→ 写出 out_csv_path。
     """
     io = _io_params(cfg)
     task = _get_task(cfg, task_key)
@@ -99,8 +99,7 @@ def select_and_rename_from_cfg(
     # 读：先把整张表读进来，方便额外抓 rp_*/U_* 列
     df_full = pd.read_csv(in_csv_path, encoding=io["encoding"], sep=io["sep"])
 
-    # ---- 自动追加 rp_1/rp_2/... 和 U_1/U_2/...（不改名） ----
-    # 注意：这里是“所有以 rp_ / U_ 开头”的列
+    # ---- 自动追加 rp_* 和 U_*（不改名） ----
     extra_rp_cols = [c for c in df_full.columns if isinstance(c, str) and c.startswith("rp_")]
     extra_U_cols  = [c for c in df_full.columns if isinstance(c, str) and c.startswith("U_")]
 
@@ -118,6 +117,23 @@ def select_and_rename_from_cfg(
 
     # 数据规范（改名之后执行，以 hstd/have/hmax/lp 等“新名”为准）
     df = _standardize_data(df)
+
+    # ------------------ 新增：ID 列（与 case_name 一一对应） ------------------
+    if "case_name" not in df.columns:
+        raise ValueError("[select_and_rename] 需要生成 ID，但输出表中缺少 'case_name' 列。"
+                         "请确认 task.columns 或 rename_map 中包含/生成了 case_name。")
+
+    # 方式 A（推荐）：同一个 case_name 分配同一个 ID（真正“一一对应”）
+    # 先按首次出现顺序拿到唯一 case_name 列表
+    uniq_cases = pd.Series(df["case_name"]).astype(str)
+    uniq_order = uniq_cases.drop_duplicates().tolist()
+    id_map = {name: i + 1 for i, name in enumerate(uniq_order)}
+    df.insert(0, "ID", uniq_cases.map(id_map).astype("Int64"))
+
+    # 如果你其实想要“每行一个递增 ID”，改成下面这一行并删除上面方式 A：
+    # df.insert(0, "ID", pd.Series(range(1, len(df) + 1), index=df.index))
+
+    # -----------------------------------------------------------------------
 
     # 写出
     _ensure_parent_dir(out_csv_path)

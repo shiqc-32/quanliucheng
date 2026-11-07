@@ -1,5 +1,16 @@
-# ignore large data folder
-/data/
-/output/
-/rur/data_in/
-/rur/data_out/
+# 默认忽略所有内容
+*
+
+# 允许检查子文件夹
+!*/
+
+# 只允许 Python 源文件
+!*.py
+
+# 保留 Git 忽略规则
+!.gitignore
+
+# 排除缓存
+__pycache__/
+*.pyc
+*.pyo

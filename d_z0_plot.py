@@ -17,6 +17,14 @@ def plot_rur_compare(in_csv, out_path):
     print("[d_z0_plot] 读取 CSV:", os.path.abspath(in_csv))
     df = pd.read_csv(in_csv)
 
+    # pairs = [
+    #     ("  d_LES(m)",  "  d_mac(m)",    "lnd of Macdonald"),
+    #     ("  d_LES(m)",  "  d_kanda(m)",  "lnd of Kanda"),
+    #     ("  d_LES(m)",  "  d_rur(m)",    "lnd of RUR"),
+    #     ("  z0_LES(m)", "  z0_mac(m)",   "lnz₀ of Macdonald"),
+    #     ("  z0_LES(m)", "  z0_kanda(m)", "lnz₀ of Kanda"),
+    #     ("  z0_LES(m)", "  z0_rur(m)",   "lnz₀ of RUR"),
+    # ]
     pairs = [
         ("  d_LES(m)",  "  d_mac(m)",    "lnd of Macdonald"),
         ("  d_LES(m)",  "  d_kanda(m)",  "lnd of Kanda"),
@@ -61,6 +69,8 @@ def plot_rur_compare(in_csv, out_path):
 
         x = np.log(sub[obs_col].to_numpy())
         y = np.log(sub[model_col].to_numpy())
+        # x = sub[obs_col].to_numpy()
+        # y = sub[model_col].to_numpy()
 
         ax.scatter(x, y, s=20)
 

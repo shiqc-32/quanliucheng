@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/stu02/shiqc24/d_z0_ML/quanliucheng/main.py", line 11, in <module>
-    from select_and_rename import select_and_rename_from_cfg
-ImportError: cannot import name 'select_and_rename_from_cfg' from 'select_and_rename' (/stu02/shiqc24/d_z0_ML/quanliucheng/select_and_rename.py)

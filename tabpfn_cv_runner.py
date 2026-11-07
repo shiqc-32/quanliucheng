@@ -1,5 +1,16 @@
 # -*- coding: utf-8 -*-
 # tabpfn_cv_runner.py
+#
+# 功能说明（双数据集增强版）：
+# - 单 CSV：按 test_split 划分训练/测试；CV 在训练集上；最终模型评估在测试集上。
+# - 多 CSV 合并：合并后按 test_split 划分；同上。
+# - 双 CSV（A=source, B=external）：
+#   1) 从 A 内部再划分：A_fit(80%) 训练 + A_holdout(20%) 内部测试
+#   2) CV 只在 A_fit 上做
+#   3) 用 A_fit 拟合一次最终模型，同时评估 A_holdout 与 B（external）
+#
+# 你原有的计算逻辑尽量保持不变；仅在“双 CSV”路径追加了 A 内部 80/20 + external 测试的流程，
+# 并新增了 tag 版落盘函数，避免同一任务下多套测试结果覆盖。
 
 import os
 import re
@@ -294,21 +305,19 @@ def fit_final_and_eval_holdout(
     mse = mean_squared_error(y_te, y_pred)
 
     test_metrics: Dict[str, float] = {
-        "r2": r2,
-        "mae": mae,
-        "mse": mse,
+        "r2": float(r2),
+        "mae": float(mae),
+        "mse": float(mse),
         "n_test": int(len(y_te)),
     }
 
     # ========== SHAP 分析 ==========
     if do_shap and _HAS_SHAP:
         try:
-            # 背景样本：从训练集里抽一小部分
             n_bg = min(100, Xtr_full.shape[0])
             bg_idx = np.random.choice(Xtr_full.shape[0], size=n_bg, replace=False)
             background = Xtr_full[bg_idx]
 
-            # 解释的测试点：抽样 shap_max_samples 个
             n_te = Xte_full.shape[0]
             if n_te > shap_max_samples:
                 te_idx = np.random.choice(n_te, size=shap_max_samples, replace=False)
@@ -324,7 +333,6 @@ def fit_final_and_eval_holdout(
 
             shap_values = np.array(shap_values)
             if shap_values.ndim == 3:
-                # 多输出时取第一个
                 shap_values = shap_values[0]
 
             mean_abs_shap = np.mean(np.abs(shap_values), axis=0)
@@ -342,7 +350,113 @@ def fit_final_and_eval_holdout(
     elif do_shap and not _HAS_SHAP:
         print("[WARN] 未安装 shap，跳过 SHAP 分析。请先 `pip install shap`。")
 
-    return test_metrics, y_pred
+    return test_metrics, np.asarray(y_pred, dtype=float).ravel()
+
+
+def fit_once_and_eval_two_sets(
+    X_fit: np.ndarray, y_fit: pd.Series,
+    X_eval1: np.ndarray, y_eval1: pd.Series,
+    X_eval2: np.ndarray, y_eval2: pd.Series,
+    *,
+    device: str, log_mode: bool, seed: int,
+    do_shap: bool = True,
+    shap_max_samples: int = 200,
+    feature_names: Optional[List[str]] = None,
+    shap_on: str = "external",   # "external" or "holdout"
+) -> Tuple[Dict[str, float], np.ndarray, Dict[str, float], np.ndarray]:
+    """
+    在 X_fit/y_fit 上拟合一次（scaler+TabPFN），然后分别对 eval1/eval2 做预测与评估。
+    返回：(metrics1, pred1, metrics2, pred2)
+
+    说明：
+    - CV 不在这里做，CV 由上层对 X_fit/y_fit 调 run_kfold_cv。
+    - log_mode=True 时内部拟合在 log(y+LOG_SHIFT) 空间，输出预测会 inverse 回原空间。
+    - SHAP 默认只在 external 上做一次（避免重复耗时），可通过 shap_on 切换。
+    """
+    if log_mode:
+        y_fit_min = float(y_fit.min())
+        y_e1_min = float(y_eval1.min())
+        y_e2_min = float(y_eval2.min())
+        if y_fit_min <= -LOG_SHIFT or y_e1_min <= -LOG_SHIFT or y_e2_min <= -LOG_SHIFT:
+            raise ValueError(
+                f"log_mode=True 且使用 log(y + {LOG_SHIFT}) 时，要求所有目标满足 y > {-LOG_SHIFT}。"
+                f"当前 y_fit_min={y_fit_min:.4f}, y_eval1_min={y_e1_min:.4f}, y_eval2_min={y_e2_min:.4f}"
+            )
+
+    scaler = StandardScaler().fit(X_fit)
+    Xfit_s = scaler.transform(X_fit)
+    Xe1_s = scaler.transform(X_eval1)
+    Xe2_s = scaler.transform(X_eval2)
+
+    y_fit_np = y_fit.to_numpy(dtype=float)
+    if log_mode:
+        yfit = np.log(y_fit_np + LOG_SHIFT)
+    else:
+        yfit = y_fit_np
+
+    model = TabPFNRegressor(device=device, random_state=seed)
+    model.fit(Xfit_s, yfit)
+
+    def _predict(Xs: np.ndarray) -> np.ndarray:
+        pred = model.predict(Xs)
+        if log_mode:
+            pred = np.exp(pred) - LOG_SHIFT
+        return np.asarray(pred, dtype=float).ravel()
+
+    pred1 = _predict(Xe1_s)
+    pred2 = _predict(Xe2_s)
+
+    def _metrics(y_true: pd.Series, y_pred: np.ndarray) -> Dict[str, float]:
+        r2 = r2_score(y_true, y_pred)
+        mae = mean_absolute_error(y_true, y_pred)
+        mse = mean_squared_error(y_true, y_pred)
+        return {"r2": float(r2), "mae": float(mae), "mse": float(mse), "n_test": int(len(y_true))}
+
+    m1 = _metrics(y_eval1, pred1)
+    m2 = _metrics(y_eval2, pred2)
+
+    # ========== SHAP（只做一次，默认 external） ==========
+    if do_shap and _HAS_SHAP:
+        try:
+            X_pool = Xe1_s if shap_on == "holdout" else Xe2_s
+
+            n_bg = min(100, Xfit_s.shape[0])
+            bg_idx = np.random.choice(Xfit_s.shape[0], size=n_bg, replace=False)
+            background = Xfit_s[bg_idx]
+
+            n_pool = X_pool.shape[0]
+            if n_pool > shap_max_samples:
+                idx = np.random.choice(n_pool, size=shap_max_samples, replace=False)
+                X_shap = X_pool[idx]
+            else:
+                X_shap = X_pool
+
+            def f_pred(x):
+                return model.predict(x)
+
+            explainer = shap.KernelExplainer(f_pred, background)
+            shap_values = explainer.shap_values(X_shap)
+
+            shap_values = np.array(shap_values)
+            if shap_values.ndim == 3:
+                shap_values = shap_values[0]
+
+            mean_abs_shap = np.mean(np.abs(shap_values), axis=0)
+
+            tgt = m1 if shap_on == "holdout" else m2
+            if feature_names is not None and len(feature_names) == len(mean_abs_shap):
+                for fname, val in zip(feature_names, mean_abs_shap):
+                    tgt[f"shap_{fname}"] = float(val)
+            else:
+                for i, val in enumerate(mean_abs_shap):
+                    tgt[f"shap_f{i}"] = float(val)
+
+        except Exception as e:
+            print(f"[WARN] SHAP 计算失败：{e}")
+    elif do_shap and not _HAS_SHAP:
+        print("[WARN] 未安装 shap，跳过 SHAP 分析。请先 `pip install shap`。")
+
+    return m1, pred1, m2, pred2
 
 
 # ================== 可视化：预测 vs 真实散点图 ==================
@@ -378,10 +492,7 @@ def plot_pred_vs_true_scatter(
 
     v_min = float(min(y_true_np.min(), y_pred_np.min()))
     v_max = float(max(y_true_np.max(), y_pred_np.max()))
-    if v_max > v_min:
-        margin = 0.05 * (v_max - v_min)
-    else:
-        margin = 1.0
+    margin = 0.05 * (v_max - v_min) if v_max > v_min else 1.0
     x_min = v_min - margin
     x_max = v_max + margin
 
@@ -400,13 +511,8 @@ def plot_pred_vs_true_scatter(
 
     fig, ax = plt.subplots(figsize=(6.5, 6.5))
 
-    # 数据点
     ax.scatter(y_true_np, y_pred_np, alpha=0.8, label="Data Points")
-
-    # 理想拟合线 y=x
     ax.plot(x_line, x_line, linestyle="--", linewidth=1.5, label="Ideal Fit (y=x)")
-
-    # 趋势线
     ax.plot(x_line, m * x_line + b, linewidth=1.5, label=f"Trend (m={m:.2f})")
 
     ax.set_xlabel("True Values")
@@ -478,7 +584,36 @@ def save_test_metrics(out_dir: str, prefix: str, mode: str, test_metrics: Dict[s
 
 def save_test_preds(out_dir: str, prefix: str, mode: str, y_te: pd.Series, y_pred: np.ndarray, enc: str) -> str:
     path = os.path.join(out_dir, f"{prefix}_{mode}_test_preds.csv")
-    pd.DataFrame({"y_true": y_te.to_numpy(dtype=float), "y_pred": y_pred.astype(float)}).to_csv(
+    pd.DataFrame({"y_true": y_te.to_numpy(dtype=float), "y_pred": np.asarray(y_pred, dtype=float).ravel()}).to_csv(
+        path, index=False, encoding=enc
+    )
+    return path
+
+
+def save_test_metrics_tag(
+    out_dir: str, prefix: str, mode: str,
+    test_metrics: Dict[str, float], tag: str, enc: str
+) -> str:
+    """
+    带 tag 的测试指标保存，避免同一任务多次评估（holdout + external）互相覆盖。
+    """
+    row = {**test_metrics, "split": tag}
+    safe_tag = str(tag).replace("/", "_")
+    path = os.path.join(out_dir, f"{prefix}_{mode}_test_metrics_{safe_tag}.csv")
+    pd.DataFrame([row]).to_csv(path, index=False, encoding=enc)
+    return path
+
+
+def save_test_preds_tag(
+    out_dir: str, prefix: str, mode: str,
+    y_true: pd.Series, y_pred: np.ndarray, tag: str, enc: str
+) -> str:
+    """
+    带 tag 的预测保存。
+    """
+    safe_tag = str(tag).replace("/", "_")
+    path = os.path.join(out_dir, f"{prefix}_{mode}_test_preds_{safe_tag}.csv")
+    pd.DataFrame({"y_true": y_true.to_numpy(dtype=float), "y_pred": np.asarray(y_pred, dtype=float).ravel()}).to_csv(
         path, index=False, encoding=enc
     )
     return path
@@ -548,7 +683,6 @@ def run_tabpfn_with_xy(
         save_test_metrics(task_out_dir, output_prefix, mode_tag, test_metrics, split_desc, enc)
         save_test_preds(task_out_dir, output_prefix, mode_tag, y_te, y_pred_test, enc)
 
-        # 预测 vs 真实散点图
         scatter_path = os.path.join(
             task_out_dir,
             f"{output_prefix}_{mode_tag}_{split_desc}_scatter.png",
@@ -594,6 +728,7 @@ def run_single_tabpfn_task(
     shap_cfg = task_cfg.get("shap", {})
     do_shap = bool(shap_cfg.get("enable", True))   # 默认开启
     shap_max_samples = int(shap_cfg.get("max_samples", 200))
+    shap_on = str(shap_cfg.get("shap_on", "external")).lower()  # external / holdout
 
     # 分箱重采样配置
     bin_cfg = task_cfg.get("binning", {})
@@ -627,7 +762,10 @@ def run_single_tabpfn_task(
     in_csv_list = task_cfg.get("in_csv_list")
     in_csv = task_cfg.get("in_csv")
 
-    # 情况 1：显式指定 train_csv + test_csv（双 CSV）
+    # ------------------------------------------------------------------
+    # 情况 1：双 CSV（A=source, B=external）
+    # 需求：A 内部 80/20 -> CV 在 A_fit(80%) -> 最终模型预测 A_holdout(20%) + B
+    # ------------------------------------------------------------------
     if train_csv and test_csv:
         pack = build_xy_from_two_csvs(
             train_csv=_get(cfg, train_csv, ctx=f"{task_name}.train_csv"),
@@ -640,12 +778,127 @@ def run_single_tabpfn_task(
             preprocess_steps_train=_mk_pre_steps(feature_cols),
             preprocess_steps_test=_mk_pre_steps(feature_cols),
         )
-        X_tr, y_tr, X_te, y_te = pack.X_tr, pack.y_tr, pack.X_te, pack.y_te
-        used_feats = pack.used_features
-        split_desc = "explicit_train_test"
 
+        X_src, y_src = pack.X_tr, pack.y_tr      # A（source，全量）
+        X_ext, y_ext = pack.X_te, pack.y_te      # B（external，全量）
+        used_feats = pack.used_features
+
+        dual_cfg = task_cfg.get("dual_dataset", {})
+        inner_test_split = float(dual_cfg.get("inner_test_split", 0.2))  # 默认 0.2（即 80/20）
+        if not (0.0 < inner_test_split < 1.0):
+            raise ValueError(f"{task_name}: dual_dataset.inner_test_split 必须在 (0,1)，当前={inner_test_split}")
+
+        # A 内部切：fit(80%) + holdout(20%)
+        idx_fit, idx_hold = split_indices(len(y_src), inner_test_split, seed)
+        X_fit, y_fit, X_hold, y_hold = split_by_indices(X_src, y_src, idx_fit, idx_hold)
+
+        # 分箱：只对 A_fit 生效（符合你的语义）
+        if bin_enable:
+            print(
+                f"[{task_name}] 启用分箱训练（仅 A_fit=80%）：n_bins={bin_n_bins}, mode={bin_mode}, "
+                f"strategy={bin_strategy}, max_per_bin={bin_max_per_bin}"
+            )
+            X_fit, y_fit = apply_binning_resample_on_target(
+                X_fit,
+                y_fit,
+                n_bins=bin_n_bins,
+                mode=bin_mode,
+                max_per_bin=bin_max_per_bin,
+                strategy=bin_strategy,
+                seed=seed,
+            )
+
+        # 逐 mode 执行
+        for log_mode in log_modes:
+            mode_tag = "log" if bool(log_mode) else "raw"
+
+            # CV：只在 A_fit 上做
+            cv_pack = run_kfold_cv(X_fit, y_fit, kf_num, device, bool(log_mode), seed)
+            save_cv_metrics(task_out_dir, output_prefix, mode_tag, cv_pack, enc)
+
+            cv_summary_meta = {
+                "task": task_name,
+                "kf_num": kf_num,
+                "n_train_fit": int(len(y_fit)),
+                "n_train_total_src": int(len(y_src)),
+                "n_features": int(X_fit.shape[1]),
+                "device": device,
+                "external_test_rows": int(len(y_ext)),
+                "inner_test_split": float(inner_test_split),
+            }
+            append_cv_summary(task_out_dir, output_prefix, mode_tag, cv_pack["summary"], cv_summary_meta, enc)
+
+            s = cv_pack["summary"]
+            print(
+                f"[{task_name} | {mode_tag.upper()}] "
+                f"CV(on A_fit) R²: {s['cv_r2_mean']:.4f} ± {s['cv_r2_std']:.4f} | "
+                f"MAE: {s['cv_mae_mean']:.4f} ± {s['cv_mae_std']:.4f} | "
+                f"MSE: {s['cv_mse_mean']:.4f} ± {s['cv_mse_std']:.4f}"
+            )
+
+            # 最终拟合一次：A_fit -> 评估 A_holdout + external(B)
+            m_hold, pred_hold, m_ext, pred_ext = fit_once_and_eval_two_sets(
+                X_fit, y_fit,
+                X_hold, y_hold,
+                X_ext, y_ext,
+                device=device,
+                log_mode=bool(log_mode),
+                seed=seed,
+                do_shap=do_shap,
+                shap_max_samples=shap_max_samples,
+                feature_names=used_feats,
+                shap_on=("holdout" if shap_on == "holdout" else "external"),
+            )
+
+            # 保存：A_holdout
+            hold_tag = f"A_holdout_{inner_test_split:.2f}"
+            save_test_metrics_tag(task_out_dir, output_prefix, mode_tag, m_hold, hold_tag, enc)
+            save_test_preds_tag(task_out_dir, output_prefix, mode_tag, y_hold, pred_hold, hold_tag, enc)
+
+            hold_scatter = os.path.join(task_out_dir, f"{output_prefix}_{mode_tag}_{hold_tag}_scatter.png")
+            plot_pred_vs_true_scatter(
+                y_true=y_hold,
+                y_pred=pred_hold,
+                task_label=task_name,
+                mode_tag=mode_tag,
+                split_desc=hold_tag,
+                kf_num=kf_num,
+                cv_summary=cv_pack["summary"],
+                test_metrics=m_hold,
+                out_path=hold_scatter,
+            )
+
+            # 保存：external(B)
+            ext_tag = "external_B"
+            save_test_metrics_tag(task_out_dir, output_prefix, mode_tag, m_ext, ext_tag, enc)
+            save_test_preds_tag(task_out_dir, output_prefix, mode_tag, y_ext, pred_ext, ext_tag, enc)
+
+            ext_scatter = os.path.join(task_out_dir, f"{output_prefix}_{mode_tag}_{ext_tag}_scatter.png")
+            plot_pred_vs_true_scatter(
+                y_true=y_ext,
+                y_pred=pred_ext,
+                task_label=task_name,
+                mode_tag=mode_tag,
+                split_desc=ext_tag,
+                kf_num=kf_num,
+                cv_summary=cv_pack["summary"],
+                test_metrics=m_ext,
+                out_path=ext_scatter,
+            )
+
+            print(
+                f"[{task_name} | {mode_tag.upper()}] "
+                f"A_holdout R²={m_hold['r2']:.4f} MAE={m_hold['mae']:.4f} MSE={m_hold['mse']:.4f}  ||  "
+                f"external_B R²={m_ext['r2']:.4f} MAE={m_ext['mae']:.4f} MSE={m_ext['mse']:.4f}"
+            )
+
+        save_used_features(task_out_dir, output_prefix, used_feats)
+        return  # ★ 双 CSV 已完成，避免继续走后续通用分支
+
+    # ------------------------------------------------------------------
     # 情况 2：in_csv_list —— 多个 CSV 合并后一份再随机划分
-    elif in_csv_list:
+    # ------------------------------------------------------------------
+    if in_csv_list:
         csv_paths = [_get(cfg, p, ctx=f"{task_name}.in_csv_list[{i}]") for i, p in enumerate(in_csv_list)]
         df_list = [load_dataframe(p, sep=sep, enc=enc) for p in csv_paths]
         df_all = pd.concat(df_list, ignore_index=True)
@@ -664,7 +917,9 @@ def run_single_tabpfn_task(
         else:
             raise ValueError(f"{task_name}: 使用 in_csv_list 时必须提供有效的 test_split (0,1)，当前为 {test_split!r}。")
 
+    # ------------------------------------------------------------------
     # 情况 3：单个 in_csv —— 普通单 CSV 随机划分
+    # ------------------------------------------------------------------
     elif in_csv:
         X_tr, y_tr, X_te, y_te, used_feats, idx_tr, idx_te, _ = build_xy_from_csv(
             in_csv=_get(cfg, in_csv, ctx=f"{task_name}.in_csv"),
@@ -681,7 +936,7 @@ def run_single_tabpfn_task(
     else:
         raise ValueError(
             f"{task_name}: 未指定数据来源。请至少配置以下字段之一：\n"
-            f"  - train_csv + test_csv（双 CSV 显式划分）\n"
+            f"  - train_csv + test_csv（双 CSV）\n"
             f"  - in_csv_list（多 CSV 合并后随机划分）\n"
             f"  - in_csv（单 CSV 随机划分）"
         )
@@ -734,7 +989,6 @@ def run_single_tabpfn_task(
         save_test_metrics(task_out_dir, output_prefix, mode_tag, test_metrics, split_desc, enc)
         save_test_preds(task_out_dir, output_prefix, mode_tag, y_te, y_pred_test, enc)
 
-        # 预测 vs 真实散点图
         scatter_path = os.path.join(
             task_out_dir,
             f"{output_prefix}_{mode_tag}_{split_desc}_scatter.png",
@@ -765,7 +1019,7 @@ def run_single_tabpfn_task(
 
 def run_tabpfn_tasks_from_cfg(cfg: Dict[str, Any], task_keys: Optional[List[str]] = None) -> None:
     """
-    对 YAML 中 tabpfn_tasks 的任务逐个执行：训练集内 K 折 CV + 测试评估（单 CSV 或双 CSV）。
+    对 YAML 中 tabpfn_tasks 的任务逐个执行：训练集内 K 折 CV + 测试评估（单 CSV / 多 CSV 合并 / 双 CSV 外部测试）。
     """
     tasks_all = cfg.get("tabpfn_tasks", {})
     if not tasks_all:
